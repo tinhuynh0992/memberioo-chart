@@ -54,32 +54,32 @@
               timeFilter.to = moment().format("YYYY-MM-DD");
               break;
             case "yesterday":
-              timeFilter.from = moment().format("YYYY-MM-DD");
-              timeFilter.to = moment().format("YYYY-MM-DD");
+              timeFilter.from = moment().subtract(1, 'days').format("YYYY-MM-DD");
+              timeFilter.to = moment().subtract(1, 'days').format("YYYY-MM-DD");
               break;
               break;
             case "thisweek":
-              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.from = moment().startOf('isoWeek').format("YYYY-MM-DD");
               timeFilter.to = moment().format("YYYY-MM-DD");
               break;
               break;
             case "lastweek":
-              timeFilter.from = moment().format("YYYY-MM-DD");
-              timeFilter.to = moment().format("YYYY-MM-DD");
+              timeFilter.from = moment().subtract(1, 'weeks').startOf('isoWeek').format("YYYY-MM-DD");
+              timeFilter.to = moment().subtract(1, 'weeks').endOf('isoWeek').format("YYYY-MM-DD");
               break;
               break;
             case "thismonth":
-              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.from = moment().startOf('month').format("YYYY-MM-DD");
               timeFilter.to = moment().format("YYYY-MM-DD");
               break;
               break;
             case "lastmonth":
-              timeFilter.from = moment().format("YYYY-MM-DD");
-              timeFilter.to = moment().format("YYYY-MM-DD");
+              timeFilter.from = moment().subtract(1, 'month').startOf('month').format("YYYY-MM-DD");
+              timeFilter.to = moment().subtract(1, 'month').endOf('month').format("YYYY-MM-DD");
               break;
               break;
             case "all":
-              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.from = "2000-01-01";
               timeFilter.to = moment().format("YYYY-MM-DD");
               break;
               break;
