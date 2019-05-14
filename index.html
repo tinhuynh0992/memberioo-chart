@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>MemberIOO - Charts</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/libs/jquery/jquery-ui.css">
     <link rel="stylesheet" href="/src/css/main.css" />    
   </head>
   <body>
@@ -31,11 +31,11 @@
         <div class="chart"></div>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://www.amcharts.com/lib/4/core.js"></script>
-    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="/libs/jquery/jquery-1.12.4.js"></script>
+    <script src="/libs/jquery/jquery-ui.js"></script>
+    <script src="/libs/moment/moment.min.js"></script>
+    <script src="/libs/amcharts/core.js"></script>
+    <script src="/libs/amcharts/charts.js"></script>
     <script>
       $(document).ready(function() {
         var timeFilter = {
@@ -45,57 +45,58 @@
         };
         $(".datepicker").datepicker();
 
-        $("#time-filter").change(function() {
+        $(".time-filter-code").change(function() {
           console.log($(this).val());
           timeFilter.code = $(this).val();
           switch (timeFilter.code) {
             case "today":
-              timeFilter.from = "";
-              timeFilter.to = "";
+              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.to = moment().format("YYYY-MM-DD");
               break;
             case "yesterday":
-              timeFilter.from = "";
-              timeFilter.to = "";
+              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.to = moment().format("YYYY-MM-DD");
               break;
               break;
             case "thisweek":
-              timeFilter.from = "";
-              timeFilter.to = "";
+              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.to = moment().format("YYYY-MM-DD");
               break;
               break;
             case "lastweek":
-              timeFilter.from = "";
-              timeFilter.to = "";
+              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.to = moment().format("YYYY-MM-DD");
               break;
               break;
             case "thismonth":
-              timeFilter.from = "";
-              timeFilter.to = "";
+              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.to = moment().format("YYYY-MM-DD");
               break;
               break;
             case "lastmonth":
-              timeFilter.from = "";
-              timeFilter.to = "";
+              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.to = moment().format("YYYY-MM-DD");
               break;
               break;
             case "all":
-              timeFilter.from = "";
-              timeFilter.to = "";
+              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.to = moment().format("YYYY-MM-DD");
               break;
               break;
             case "custom":
-              timeFilter.from = "";
-              timeFilter.to = "";
+              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.to = moment().format("YYYY-MM-DD");
               break;
               break;
             default:
-              timeFilter.from = "";
-              timeFilter.to = "";
+              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.to = moment().format("YYYY-MM-DD");
               break;
               break;
           }
 
           // Redraw chart
+          console.log("DEBUG ", timeFilter);
         })
       });
     </script>
