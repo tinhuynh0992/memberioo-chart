@@ -5,8 +5,8 @@
     <div>
       <div class="filter">
         <select name="" id="">
-          <option value="">Today</option>
-          <option value="">Yesterday</option>
+          <option value="today">Today</option>
+          <option value="yesterday">Yesterday</option>
           <option value="">This week</option>
           <option value="">Last week</option>
           <option value="">This month</option>
@@ -14,10 +14,20 @@
           <option value="">All Time</option>
           <option value="">Custom Date</option>
         </select>
+        <div>
+          <input type="text" class="datepicker" name="from" />
+          <input type="text" class="datepicker" name="to" />
+        </div>
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
     <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script>
+      $(document).ready(function() {
+        $(".datepicker").datepicker();
+      });
+    </script>
   </body>
 </html>
