@@ -7,33 +7,96 @@
   </head>
   <body>
     <div>
-      <div class="filter flex">
-        <div>Filter</div>
+      <div class="time-filter flex">
+        <div class="time-filter-label">Filter</div>
         <div>
-          <select name="" id="">
-            <option value="today">Today</option>
+          <select class="time-filter-code">
+            <option value="today" selected>Today</option>
             <option value="yesterday">Yesterday</option>
-            <option value="">This week</option>
-            <option value="">Last week</option>
-            <option value="">This month</option>
-            <option value="">Last month</option>
-            <option value="">All Time</option>
-            <option value="">Custom Date</option>
+            <option value="thisweek">This week</option>
+            <option value="lastweek">Last week</option>
+            <option value="thismonth">This month</option>
+            <option value="lastmonth">Last month</option>
+            <option value="all">All Time</option>
+            <option value="custom">Custom Date</option>
           </select>
         </div>
-        <div>
+        <div class="time-filter-custom">
           <input type="text" class="datepicker" name="from" />
           <input type="text" class="datepicker" name="to" />
         </div>
       </div>
+
+      <div>
+        <div class="chart"></div>
+      </div>
     </div>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
     <script src="https://www.amcharts.com/lib/4/charts.js"></script>
     <script>
       $(document).ready(function() {
+        var timeFilter = {
+          code: "today",
+          from: "",
+          to: ""
+        };
         $(".datepicker").datepicker();
+
+        $("#time-filter").change(function() {
+          console.log($(this).val());
+          timeFilter.code = $(this).val();
+          switch (timeFilter.code) {
+            case "today":
+              timeFilter.from = "";
+              timeFilter.to = "";
+              break;
+            case "yesterday":
+              timeFilter.from = "";
+              timeFilter.to = "";
+              break;
+              break;
+            case "thisweek":
+              timeFilter.from = "";
+              timeFilter.to = "";
+              break;
+              break;
+            case "lastweek":
+              timeFilter.from = "";
+              timeFilter.to = "";
+              break;
+              break;
+            case "thismonth":
+              timeFilter.from = "";
+              timeFilter.to = "";
+              break;
+              break;
+            case "lastmonth":
+              timeFilter.from = "";
+              timeFilter.to = "";
+              break;
+              break;
+            case "all":
+              timeFilter.from = "";
+              timeFilter.to = "";
+              break;
+              break;
+            case "custom":
+              timeFilter.from = "";
+              timeFilter.to = "";
+              break;
+              break;
+            default:
+              timeFilter.from = "";
+              timeFilter.to = "";
+              break;
+              break;
+          }
+
+          // Redraw chart
+        })
       });
     </script>
   </body>
