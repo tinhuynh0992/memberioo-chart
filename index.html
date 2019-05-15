@@ -3,7 +3,13 @@
   <head>
     <title>MemberIOO - Charts</title>
     <link rel="stylesheet" href="/libs/jquery/jquery-ui.css">
-    <link rel="stylesheet" href="/src/css/main.css" />    
+    <link rel="stylesheet" href="/src/css/main.css" />
+    <style>
+      .chart {
+        width: 100%;
+        height: 500px;
+      }
+    </style>
   </head>
   <body>
     <div>
@@ -28,7 +34,7 @@
       </div>
 
       <div>
-        <div class="chart"></div>
+        <div id="chart" class="chart"></div>
       </div>
     </div>
     <script src="/libs/jquery/jquery-1.12.4.js"></script>
@@ -40,9 +46,13 @@
       $(document).ready(function() {
         var timeFilter = {
           code: "today",
-          from: "",
-          to: ""
+          from: moment().format("YYYY-MM-DD"),
+          to: moment().format("YYYY-MM-DD")
         };
+        var chart = undefined;
+        var chartData = [];
+        var am4coreIsReady = false;
+
         $(".datepicker").datepicker();
 
         $(".time-filter-code").change(function() {
@@ -97,7 +107,106 @@
 
           // Redraw chart
           console.log("DEBUG ", timeFilter);
-        })
+        });
+
+        function prepareData(data, type1, type2, timeFilter) {
+          let filteredData = filterData(type1, type2, timeFilter);
+          // sum data
+
+        }
+
+        function filterData(data, type1, type2, filter) {
+          return data.map(row => {
+            return (row.Type === type1 || row.Type === type2) &&
+              (moment(filter.from) <= moment(row.date) && moment(row.Date) <= moment(filter.to))
+            ; 
+          });
+        }
+
+        function initChart(config) {
+          am4core.ready(function() {
+            am4coreIsReady = true;
+            // Themes begin
+            // am4core.useTheme(am4themes_animated);
+            // Themes end
+
+            var chart = am4core.create("chart", am4charts.XYChart);
+
+            chart.data = chartData;
+
+            chart.dateFormatter.inputDateFormat = "yyyy-MM-DD";
+
+            var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+            dateAxis.renderer.minGridDistance = 60;
+            dateAxis.startLocation = 0.5;
+            dateAxis.endLocation = 0.5;
+            dateAxis.baseInterval = {
+              timeUnit: "year",
+              count: 1
+            }
+
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.tooltip.disabled = true;
+
+            var series = chart.series.push(new am4charts.LineSeries());
+            series.dataFields.dateX = "year";
+            series.name = "cars";
+            series.dataFields.valueY = "cars";
+            series.tooltipText = "[#000]{valueY.value}[/]";
+            series.tooltip.background.fill = am4core.color("#FFF");
+            series.tooltip.getStrokeFromObject = true;
+            series.tooltip.background.strokeWidth = 3;
+            series.tooltip.getFillFromObject = false;
+            series.fillOpacity = 0.6;
+            series.strokeWidth = 2;
+            series.stacked = true;
+
+            var series2 = chart.series.push(new am4charts.LineSeries());
+            series2.name = "motorcycles";
+            series2.dataFields.dateX = "year";
+            series2.dataFields.valueY = "motorcycles";
+            series2.tooltipText = "[#000]{valueY.value}[/]";
+            series2.tooltip.background.fill = am4core.color("#FFF");
+            series2.tooltip.getFillFromObject = false;
+            series2.tooltip.getStrokeFromObject = true;
+            series2.tooltip.background.strokeWidth = 3;
+            series2.sequencedInterpolation = true;
+            series2.fillOpacity = 0.6;
+            series2.stacked = true;
+            series2.strokeWidth = 2;
+
+            chart.cursor = new am4charts.XYCursor();
+            chart.cursor.xAxis = dateAxis;
+
+            // Add a legend
+            chart.legend = new am4charts.Legend();
+            chart.legend.position = "top";
+
+          });
+        }
+
+        function drawChart() {
+          if (am4coreIsReady && chart) {
+            chart.validateData();
+          }
+        }
+
+        function loadData() {
+          $.ajax({ 
+            type: 'GET', 
+            url: 'http://localhost:5000/data/data.json', 
+            dataType: 'json',
+            success: function(response) { 
+              console.log("DEBUG ", response);
+              chartData = response.data;
+              drawChart();
+            }
+          });
+        }
+       
+        loadData();
+        initChart();
+        drawChart();
       });
     </script>
   </body>
