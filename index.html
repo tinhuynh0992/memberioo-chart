@@ -33,6 +33,30 @@
         </div>
       </div>
 
+      <div class="type-filter flex">
+        <div>
+          <select class="type-input" data-type="1">
+            <option value="leads" selected>Leads</option>
+            <option value="visitor">Visitor</option>
+            <option value="refunds">Refunds</option>
+            <option value="conversion">Conversion</option>
+            <option value="revenue">Revenue</option>
+            <option value="sales">Sales</option>
+          </select>
+        </div>
+        <div>vs</div>
+        <div>
+          <select class="type-input" data-type="2">
+            <option value="leads">Leads</option>
+            <option value="visitor" selected>Visitor</option>
+            <option value="refunds">Refunds</option>
+            <option value="conversion">Conversion</option>
+            <option value="revenue">Revenue</option>
+            <option value="sales">Sales</option>
+          </select>
+        </div>
+      </div>
+
       <div>
         <div id="chart" class="chart"></div>
       </div>
@@ -49,14 +73,18 @@
           from: moment().format("YYYY-MM-DD"),
           to: moment().format("YYYY-MM-DD")
         };
+        var typeFilter = {
+          type1: "leads",
+          type2: "visitor"
+        }
         var chart = undefined;
+        var rawChartData = [];
         var chartData = [];
         var am4coreIsReady = false;
 
         $(".datepicker").datepicker();
 
         $(".time-filter-code").change(function() {
-          console.log($(this).val());
           timeFilter.code = $(this).val();
           switch (timeFilter.code) {
             case "today":
@@ -106,21 +134,42 @@
           }
 
           // Redraw chart
-          console.log("DEBUG ", timeFilter);
+          chartData = prepareData(rawChartData, typeFilter, timeFilter);
+          drawChart();
         });
 
-        function prepareData(data, type1, type2, timeFilter) {
-          let filteredData = filterData(type1, type2, timeFilter);
-          // sum data
+        $(".type-input").change(function() {
+          const typeIndex = Number($(this).data("type"));
+          if (!isNaN(typeIndex)) {
+            typeFilter[`type${typeIndex}`] = $(this).val();
+          }
 
+          // Redraw chart
+          chartData = prepareData(rawChartData, typeFilter, timeFilter);
+          drawChart();
+        })
+
+        function prepareData(data, typeFilter, timeFilter) {
+          let filteredData = filterData(data, typeFilter, timeFilter);
+          console.log("DEBUG filterData");
+          console.log(filteredData);
+          // sum data
+          let arrangedData = arrangeData(filteredData, typeFilter, timeFilter);
+          //
+          return arrangedData;
         }
 
-        function filterData(data, type1, type2, filter) {
-          return data.map(row => {
-            return (row.Type === type1 || row.Type === type2) &&
-              (moment(filter.from) <= moment(row.date) && moment(row.Date) <= moment(filter.to))
+        function filterData(data, typeFilter, timeFilter) {
+          return data.filter(row => {
+            return (String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()
+              || String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase()) &&
+              (moment(timeFilter.from) <= moment(row.date) && moment(row.Date) <= moment(timeFilter.to))
             ; 
           });
+        }
+
+        function arrangeData(data, typeFilter, timeFilter) {
+          return data;
         }
 
         function initChart(config) {
@@ -197,8 +246,8 @@
             url: 'http://localhost:5000/data/data.json', 
             dataType: 'json',
             success: function(response) { 
-              console.log("DEBUG ", response);
-              chartData = response.data;
+              rawChartData = response.data;
+              chartData = prepareData(rawChartData, typeFilter, timeFilter);
               drawChart();
             }
           });
@@ -206,7 +255,6 @@
        
         loadData();
         initChart();
-        drawChart();
       });
     </script>
   </body>
