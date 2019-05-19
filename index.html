@@ -12,11 +12,13 @@
     </style>
   </head>
   <body>
-    <div>
-      <div class="time-filter flex">
-        <div class="time-filter-label">Filter</div>
+    <div class="main bg-gray mx-auto">
+      <div class="time-filter flex mb-4">
+        <div class="time-filter-label flex items-center mr-4">
+          <div>Filter</div>
+        </div>
         <div>
-          <select class="time-filter-code">
+          <select class="time-filter-code form-control">
             <option value="today" selected>Today</option>
             <option value="yesterday">Yesterday</option>
             <option value="thisweek">This week</option>
@@ -27,39 +29,44 @@
             <option value="custom">Custom Date</option>
           </select>
         </div>
-        <div class="time-filter-custom">
+        <div class="time-filter-custom" style="display: none;">
           <input type="text" class="datepicker" name="from" />
           <input type="text" class="datepicker" name="to" />
         </div>
       </div>
 
-      <div class="type-filter flex">
-        <div>
-          <select class="type-input" data-type="1">
-            <option value="leads" selected>Leads</option>
-            <option value="visitor">Visitor</option>
-            <option value="refunds">Refunds</option>
-            <option value="conversion">Conversion</option>
-            <option value="revenue">Revenue</option>
-            <option value="sales">Sales</option>
-          </select>
+      <div class="bg-white rounded-md py-6 mx-4 my-6">
+        <div class="type-filter flex">
+          <div>
+            <select class="type-input form-control" data-type="1">
+              <option value="leads" selected>Leads</option>
+              <option value="visitor">Visitor</option>
+              <option value="refunds">Refunds</option>
+              <option value="conversion">Conversion</option>
+              <option value="revenue">Revenue</option>
+              <option value="sales">Sales</option>
+            </select>
+          </div>
+          <div class="flex items-center mx-4">
+            <div>vs</div>
+          </div>
+          <div>
+            <select class="type-input form-control" data-type="2">
+              <option value="leads">Leads</option>
+              <option value="visitor" selected>Visitor</option>
+              <option value="refunds">Refunds</option>
+              <option value="conversion">Conversion</option>
+              <option value="revenue">Revenue</option>
+              <option value="sales">Sales</option>
+            </select>
+          </div>
         </div>
-        <div>vs</div>
-        <div>
-          <select class="type-input" data-type="2">
-            <option value="leads">Leads</option>
-            <option value="visitor" selected>Visitor</option>
-            <option value="refunds">Refunds</option>
-            <option value="conversion">Conversion</option>
-            <option value="revenue">Revenue</option>
-            <option value="sales">Sales</option>
-          </select>
-        </div>
-      </div>
 
-      <div>
-        <div id="chart" class="chart"></div>
+        <div>
+          <div id="chart" class="chart"></div>
+        </div>
       </div>
+      
     </div>
     <script src="/libs/jquery/jquery-1.12.4.js"></script>
     <script src="/libs/jquery/jquery-ui.js"></script>
@@ -122,8 +129,10 @@
               break;
               break;
             case "custom":
-              timeFilter.from = moment().format("YYYY-MM-DD");
-              timeFilter.to = moment().format("YYYY-MM-DD");
+              // Show time-filter-custom
+              $(".time-filter-custom").css('display', 'block');
+              // timeFilter.from = moment().format("YYYY-MM-DD");
+              // timeFilter.to = moment().format("YYYY-MM-DD");
               break;
               break;
             default:
@@ -138,6 +147,20 @@
           drawChart();
         });
 
+        $(".time-filter-custom input[name=from]").change(function() {
+          timeFilter.from = $(this).val();
+          // Redraw chart
+          chartData = prepareData(rawChartData, typeFilter, timeFilter);
+          drawChart();
+        });
+
+        $(".time-filter-custom input[name=to]").change(function() {
+          timeFilter.to = $(this).val();
+          // Redraw chart
+          chartData = prepareData(rawChartData, typeFilter, timeFilter);
+          drawChart();
+        });
+        
         $(".type-input").change(function() {
           const typeIndex = Number($(this).data("type"));
           if (!isNaN(typeIndex)) {
@@ -235,9 +258,9 @@
         }
 
         function drawChart() {
-          if (am4coreIsReady && chart) {
-            chart.validateData();
-          }
+          // if (am4coreIsReady && chart) {
+          //   chart.validateData();
+          // }
         }
 
         function loadData() {
