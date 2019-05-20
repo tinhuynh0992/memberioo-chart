@@ -158,8 +158,8 @@ function arrangeDataForThisMonth(data, typeFilter, timeFilter) {
       return (
         String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()
         && (
-          moment(row.Date).format("d")
-          === moment(timeFilter.from).add(i, "day").format("d")
+          moment(row.Date).format("D")
+          === moment(timeFilter.from).add(i, "day").format("D")
         )
       ); 
     }).length;
@@ -168,8 +168,8 @@ function arrangeDataForThisMonth(data, typeFilter, timeFilter) {
       return (
         String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase()
         && (
-          moment(row.Date).format("d")
-          === moment(timeFilter.from).add(i, "day").format("d")
+          moment(row.Date).format("D")
+          === moment(timeFilter.from).add(i, "day").format("D")
         )
       ); 
     }).length;
@@ -199,8 +199,8 @@ function arrangeDataForLastMonth(data, typeFilter, timeFilter) {
       return (
         String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()
         && (
-          moment(row.Date).format("d")
-          === moment(timeFilter.from).add(i, "day").format("d")
+          moment(row.Date).format("D")
+          === moment(timeFilter.from).add(i, "day").format("D")
         )
       ); 
     }).length;
@@ -209,8 +209,8 @@ function arrangeDataForLastMonth(data, typeFilter, timeFilter) {
       return (
         String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase()
         && (
-          moment(row.Date).format("d")
-          === moment(timeFilter.from).add(i, "day").format("d")
+          moment(row.Date).format("D")
+          === moment(timeFilter.from).add(i, "day").format("D")
         )
       ); 
     }).length;
