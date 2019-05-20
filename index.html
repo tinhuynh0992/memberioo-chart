@@ -268,37 +268,17 @@
             chart = am4core.create("chart", am4charts.XYChart);
 
             chart.data = chartData;
-            // chart.data = [
-            //   {time: "00:00", v1: 0, v2: 0},
-            //   {time: "01:00", v1: 0, v2: 0},
-            //   {time: "02:00", v1: 0, v2: 0},
-            //   {time: "03:00", v1: 0, v2: 0},
-            //   {time: "04:00", v1: 0, v2: 0},
-            //   {time: "05:00", v1: 1, v2: 0},
-            //   {time: "06:00", v1: 0, v2: 0},
-            //   {time: "07:00", v1: 0, v2: 0},
-            //   {time: "08:00", v1: 0, v2: 0},
-            //   {time: "09:00", v1: 0, v2: 0},
-            //   {time: "10:00", v1: 0, v2: 0},
-            //   {time: "11:00", v1: 0, v2: 0},
-            //   {time: "12:00", v1: 0, v2: 0},
-            //   {time: "13:00", v1: 0, v2: 0},
-            //   {time: "14:00", v1: 0, v2: 0},
-            //   {time: "15:00", v1: 0, v2: 0},
-            //   {time: "16:00", v1: 0, v2: 0},
-            //   {time: "17:00", v1: 0, v2: 0},
-            //   {time: "18:00", v1: 0, v2: 0},
-            //   {time: "19:00", v1: 0, v2: 0},
-            //   {time: "20:00", v1: 0, v2: 0},
-            //   {time: "21:00", v1: 0, v2: 0},
-            //   {time: "22:00", v1: 0, v2: 0},
-            //   {time: "23:00", v1: 0, v2: 0}
-            // ];
-            // chart.dataProvider = chartData;
 
             chart.dateFormatter.inputDateFormat = "yyyy-MM-DD HH:mm";
 
             var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+            dateAxis.renderer.minGridDistance = 60;
+            dateAxis.startLocation = 0.5;
+            dateAxis.endLocation = 0.5;
+            dateAxis.baseInterval = {
+              timeUnit: config.dateFormat.period,
+              count: 1
+            }
             dateAxis.dateFormats.setKey(
               config.dateFormat.period,
               config.dateFormat.format
