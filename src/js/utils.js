@@ -20,7 +20,7 @@ function arrangeDataForToday(data, typeFilter, timeFilter) {
     }).length;
 
     arrangedData.push({
-      time: moment(timeFilter.from).add(i, "hour").format("HH:mm"),
+      time: moment(timeFilter.from).add(i, "hour").format("YYYY-MM-DD HH:mm"),
       v1: v1,
       v2: v2
     })
@@ -50,7 +50,7 @@ function arrangeDataForYesterday(data, typeFilter, timeFilter) {
     }).length;
 
     arrangedData.push({
-      time: moment(timeFilter.from).add(i, "hour").format("HH:mm"),
+      time: moment(timeFilter.from).add(i, "hour").format("YYYY-MM-DD HH:mm"),
       v1: v1,
       v2: v2
     })
@@ -91,7 +91,7 @@ function arrangeDataForThisWeek(data, typeFilter, timeFilter) {
     }).length;
 
     arrangedData.push({
-      time: moment(timeFilter.from).add(i, "day").format("ddd"),
+      time: moment(timeFilter.from).add(i, "day").format("YYYY-MM-DD HH:mm"),
       v1: v1,
       v2: v2
     });
@@ -133,7 +133,7 @@ function arrangeDataForLastWeek(data, typeFilter, timeFilter) {
     }).length;
 
     arrangedData.push({
-      time: moment(timeFilter.from).add(i, "day").format("ddd"),
+      time: moment(timeFilter.from).add(i, "day").format("YYYY-MM-DD HH:mm"),
       v1: v1,
       v2: v2
     });
@@ -175,7 +175,7 @@ function arrangeDataForThisMonth(data, typeFilter, timeFilter) {
     }).length;
 
     arrangedData.push({
-      time: moment(timeFilter.from).add(i, "day").format("DD"),
+      time: moment(timeFilter.from).add(i, "day").format("YYYY-MM-DD HH:mm"),
       v1: v1,
       v2: v2
     });
@@ -216,7 +216,7 @@ function arrangeDataForLastMonth(data, typeFilter, timeFilter) {
     }).length;
 
     arrangedData.push({
-      time: moment(timeFilter.from).add(i, "day").format("DD"),
+      time: moment(timeFilter.from).add(i, "day").format("YYYY-MM-DD HH:mm"),
       v1: v1,
       v2: v2
     });

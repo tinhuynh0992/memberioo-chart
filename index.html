@@ -88,6 +88,24 @@
         var chart = undefined;
         var rawChartData = [];
         var chartData = [];
+        var chartConfig = {
+          dateFormat: {
+            period: "hour",
+            format: "HH:mm",
+          },
+          series1: {
+            name: "Leads",
+            marker: {
+              fill: "#ff0000"
+            }
+          },
+          series2: {
+            name: "Visitor",
+            marker: {
+              fill: "#00ff00"
+            }
+          }
+        };
         var am4coreIsReady = false;
 
         $(".datepicker").datepicker();
@@ -100,36 +118,48 @@
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().format("YYYY-MM-DD");
               timeFilter.to = moment().format("YYYY-MM-DD");
+              chartConfig.dateFormat.period = "hour";
+              chartConfig.dateFormat.format = "HH:mm";
               break;
             case "yesterday":
               // Hide custom time filter block
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().subtract(1, 'days').format("YYYY-MM-DD");
               timeFilter.to = moment().subtract(1, 'days').format("YYYY-MM-DD");
+              chartConfig.dateFormat.period = "hour";
+              chartConfig.dateFormat.format = "HH:mm";
               break;
             case "thisweek":
               // Hide custom time filter block
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().startOf('isoWeek').format("YYYY-MM-DD");
               timeFilter.to = moment().format("YYYY-MM-DD");
+              chartConfig.dateFormat.period = "day";
+              chartConfig.dateFormat.format = "EEE";
               break;
             case "lastweek":
               // Hide custom time filter block
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().subtract(1, 'weeks').startOf('isoWeek').format("YYYY-MM-DD");
               timeFilter.to = moment().subtract(1, 'weeks').endOf('isoWeek').format("YYYY-MM-DD");
+              chartConfig.dateFormat.period = "day";
+              chartConfig.dateFormat.format = "EEE";
               break;
             case "thismonth":
               // Hide custom time filter block
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().startOf('month').format("YYYY-MM-DD");
               timeFilter.to = moment().format("YYYY-MM-DD");
+              chartConfig.dateFormat.period = "day";
+              chartConfig.dateFormat.format = "DD";
               break;
             case "lastmonth":
               // Hide custom time filter block
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().subtract(1, 'month').startOf('month').format("YYYY-MM-DD");
               timeFilter.to = moment().subtract(1, 'month').endOf('month').format("YYYY-MM-DD");
+              chartConfig.dateFormat.period = "day";
+              chartConfig.dateFormat.format = "DD";
               break;
             case "all":
               // Hide custom time filter block
@@ -149,13 +179,16 @@
 
           // Redraw chart
           chartData = prepareData(rawChartData, typeFilter, timeFilter);
+          initChart(chartConfig);
           drawChart();
         });
 
         $(".time-filter-custom input[name=from]").change(function() {
           timeFilter.from = $(this).val();
+
           // Redraw chart
           chartData = prepareData(rawChartData, typeFilter, timeFilter);
+          initChart(chartConfig);
           drawChart();
         });
 
@@ -163,6 +196,7 @@
           timeFilter.to = $(this).val();
           // Redraw chart
           chartData = prepareData(rawChartData, typeFilter, timeFilter);
+          initChart(chartConfig);
           drawChart();
         });
         
@@ -174,6 +208,7 @@
 
           // Redraw chart
           chartData = prepareData(rawChartData, typeFilter, timeFilter);
+          initChart(chartConfig);
           drawChart();
         })
 
@@ -230,32 +265,51 @@
           am4core.ready(function() {
             am4coreIsReady = true;
 
-            var chart = am4core.create("chart", am4charts.XYChart);
+            chart = am4core.create("chart", am4charts.XYChart);
 
-            // chart.data = chartData;
-            chart.data = [
-              {
+            chart.data = chartData;
+            // chart.data = [
+            //   {time: "00:00", v1: 0, v2: 0},
+            //   {time: "01:00", v1: 0, v2: 0},
+            //   {time: "02:00", v1: 0, v2: 0},
+            //   {time: "03:00", v1: 0, v2: 0},
+            //   {time: "04:00", v1: 0, v2: 0},
+            //   {time: "05:00", v1: 1, v2: 0},
+            //   {time: "06:00", v1: 0, v2: 0},
+            //   {time: "07:00", v1: 0, v2: 0},
+            //   {time: "08:00", v1: 0, v2: 0},
+            //   {time: "09:00", v1: 0, v2: 0},
+            //   {time: "10:00", v1: 0, v2: 0},
+            //   {time: "11:00", v1: 0, v2: 0},
+            //   {time: "12:00", v1: 0, v2: 0},
+            //   {time: "13:00", v1: 0, v2: 0},
+            //   {time: "14:00", v1: 0, v2: 0},
+            //   {time: "15:00", v1: 0, v2: 0},
+            //   {time: "16:00", v1: 0, v2: 0},
+            //   {time: "17:00", v1: 0, v2: 0},
+            //   {time: "18:00", v1: 0, v2: 0},
+            //   {time: "19:00", v1: 0, v2: 0},
+            //   {time: "20:00", v1: 0, v2: 0},
+            //   {time: "21:00", v1: 0, v2: 0},
+            //   {time: "22:00", v1: 0, v2: 0},
+            //   {time: "23:00", v1: 0, v2: 0}
+            // ];
+            // chart.dataProvider = chartData;
 
-              }
-            ];
-
-            chart.dateFormatter.inputDateFormat = "yyyy-MM-DD";
+            chart.dateFormatter.inputDateFormat = "yyyy-MM-DD HH:mm";
 
             var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-            dateAxis.renderer.minGridDistance = 60;
-            dateAxis.startLocation = 0.5;
-            dateAxis.endLocation = 0.5;
-            dateAxis.baseInterval = {
-              timeUnit: "year",
-              count: 1
-            }
+            dateAxis.dateFormats.setKey(
+              config.dateFormat.period,
+              config.dateFormat.format
+            );
 
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.tooltip.disabled = true;
 
             // Configure series1
             var series = chart.series.push(new am4charts.LineSeries());
-            series.dataFields.dateX = "year";
+            series.dataFields.dateX = "time";
             series.name = config.series1.name;
             series.dataFields.valueY = "v1";
             series.tooltipText = "[#000]{valueY.value}[/]";
@@ -269,7 +323,7 @@
 
             // Configure series2
             var series2 = chart.series.push(new am4charts.LineSeries());
-            series2.dataFields.dateX = "year";
+            series2.dataFields.dateX = "time";
             series2.name = config.series2.name;
             series2.dataFields.valueY = "v2";
             series2.tooltipText = "[#000]{valueY.value}[/]";
@@ -302,7 +356,7 @@
 
         function drawChart() {
           // if (am4coreIsReady && chart) {
-          //   chart.validateData();
+            chart.validateData();
           // }
         }
 
@@ -314,28 +368,15 @@
             success: function(response) { 
               rawChartData = response.data;
               chartData = prepareData(rawChartData, typeFilter, timeFilter);
+              initChart(chartConfig);
               drawChart();
             }
           });
         }
        
         loadData();
-        initChart(
-          {
-            series1: {
-              name: "Leads",
-              marker: {
-                fill: "#ff0000"
-              }
-            },
-            series2: {
-              name: "Visitor",
-              marker: {
-                fill: "#00ff00"
-              }
-            }
-          }
-        );
+        initChart(chartConfig);
+        drawChart();
       });
     </script>
   </body>
