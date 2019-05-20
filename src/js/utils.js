@@ -226,3 +226,30 @@ function arrangeDataForLastMonth(data, typeFilter, timeFilter) {
 
   return arrangedData;
 }
+
+/*
+* @brief: All Time: the X property will be month name. and it will populate whole data
+*/
+function arrangeDataForAllTime(data, typeFilter, timeFilter) {
+  let arrangedData = [];
+  let v1 = 0;
+  let v2 = 0;
+  let i = 0;
+ 
+  return arrangedData;
+}
+
+/*
+* @brief: Custom Date: the X property will be Month name. if this option choosed, 
+* there will be another options appear which is 2 Date field. you can use jQuery UI Datepicker. 
+* First datepicker called "From" and Second datepicker called "To". After user choose 
+* both of date, they are able to click a button then fetch the data based on the date range.
+*/
+function arrangeDataForCustomTime(data, typeFilter, timeFilter) {
+  let arrangedData = [];
+  let v1 = 0;
+  let v2 = 0;
+  let i = 0;
+ 
+  return arrangedData;
+}

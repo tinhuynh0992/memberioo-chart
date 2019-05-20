@@ -217,7 +217,10 @@
             case "lastmonth":
               return arrangeDataForLastMonth(data, typeFilter, timeFilter);
             case "all":
+              return arrangeDataForAllTime(data, typeFilter, timeFilter);
             case "custom":
+              return arrangeDataForCustomTime(data, typeFilter, timeFilter);
+            default:
               break;
           }
           return [];
