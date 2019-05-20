@@ -68,27 +68,34 @@ function arrangeDataForThisWeek(data, typeFilter, timeFilter) {
   let arrangedData = [];
   let v1 = 0;
   let v2 = 0;
-  for (let i = 0; i < 7; i++) {
+  let i = 0;
+  do {
     v1 = data.filter(row => {
       return (
-        String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase())
-        && (moment(row.Date).format("d") === moment().subtract(i, "day").format("d")
+        String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()
+        && (
+          moment(row.Date).format("d")
+          === moment(timeFilter.from).add(i, "day").format("d")
+        )
       ); 
     }).length;
 
     v2 = data.filter(row => {
       return (
-        String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase())
-        && (moment(row.Date).format("d") === moment().subtract(i, "day").format("d")
+        String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase()
+        && (
+          moment(row.Date).format("d")
+          === moment(timeFilter.from).add(i, "day").format("d")
+        )
       ); 
     }).length;
 
     arrangedData.push({
-      time: moment().subtract(i, "day").format("ddd"),
+      time: moment(timeFilter.from).add(i, "day").format("ddd"),
       v1: v1,
       v2: v2
     })
-  }
+  } while (moment(timeFilter.from).add(i, "day") < moment(timeFilter.to));
 
   return arrangedData;
 }

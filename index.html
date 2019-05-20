@@ -178,6 +178,7 @@
         })
 
         function prepareData(data, typeFilter, timeFilter) {
+          console.log("DEBUG prepareData", typeFilter, timeFilter);
           let filteredData = filterData(data, typeFilter, timeFilter);
           console.log("DEBUG filterData");
           console.log(filteredData);
