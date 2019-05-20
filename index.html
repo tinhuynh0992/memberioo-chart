@@ -73,6 +73,7 @@
     <script src="/libs/moment/moment.min.js"></script>
     <script src="/libs/amcharts/core.js"></script>
     <script src="/libs/amcharts/charts.js"></script>
+    <script src="/src/js/utils.js"></script>
     <script>
       $(document).ready(function() {
         var timeFilter = {
@@ -190,22 +191,32 @@
           console.log(filteredData);
           // sum data
           let arrangedData = arrangeData(filteredData, typeFilter, timeFilter);
+          console.log("DEBUG arrangeData");
+          console.log(arrangedData);
           //
           return arrangedData;
         }
 
         function filterData(data, typeFilter, timeFilter) {
           return data.filter(row => {
-            // console.log("DEBUG ", moment(timeFilter.from) <= moment(row.Date));
-            return (String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()
-              || String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase()) &&
-              (moment(timeFilter.from) <= moment(row.Date) && moment(row.Date) <= moment(timeFilter.to))
-            ; 
+            return (
+              String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()
+              || String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase()
+            ) && (
+              moment(timeFilter.from, "YYYY-MM-DD") <= moment(row.Date, "YYYY-MM-DD") 
+              && moment(row.Date, "YYYY-MM-DD") <= moment(timeFilter.to, "YYYY-MM-DD")
+            ); 
           });
         }
 
         function arrangeData(data, typeFilter, timeFilter) {
-          return data;
+          switch (timeFilter.code) {
+            case "today":
+              return arrangeDataForToday(data, typeFilter, timeFilter);
+            default:
+              break;
+          }
+          return [];
         }
 
         function initChart(config) {
