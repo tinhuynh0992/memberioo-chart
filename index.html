@@ -196,9 +196,10 @@
 
         function filterData(data, typeFilter, timeFilter) {
           return data.filter(row => {
+            // console.log("DEBUG ", moment(timeFilter.from) <= moment(row.Date));
             return (String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()
               || String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase()) &&
-              (moment(timeFilter.from) <= moment(row.date) && moment(row.Date) <= moment(timeFilter.to))
+              (moment(timeFilter.from) <= moment(row.Date) && moment(row.Date) <= moment(timeFilter.to))
             ; 
           });
         }
@@ -210,13 +211,15 @@
         function initChart(config) {
           am4core.ready(function() {
             am4coreIsReady = true;
-            // Themes begin
-            // am4core.useTheme(am4themes_animated);
-            // Themes end
 
             var chart = am4core.create("chart", am4charts.XYChart);
 
-            chart.data = chartData;
+            // chart.data = chartData;
+            chart.data = [
+              {
+
+              }
+            ];
 
             chart.dateFormatter.inputDateFormat = "yyyy-MM-DD";
 
@@ -232,10 +235,11 @@
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.tooltip.disabled = true;
 
+            // Configure series1
             var series = chart.series.push(new am4charts.LineSeries());
             series.dataFields.dateX = "year";
-            series.name = "cars";
-            series.dataFields.valueY = "cars";
+            series.name = config.series1.name;
+            series.dataFields.valueY = "v1";
             series.tooltipText = "[#000]{valueY.value}[/]";
             series.tooltip.background.fill = am4core.color("#FFF");
             series.tooltip.getStrokeFromObject = true;
@@ -245,10 +249,11 @@
             series.strokeWidth = 2;
             series.stacked = true;
 
+            // Configure series2
             var series2 = chart.series.push(new am4charts.LineSeries());
-            series2.name = "motorcycles";
             series2.dataFields.dateX = "year";
-            series2.dataFields.valueY = "motorcycles";
+            series2.name = config.series2.name;
+            series2.dataFields.valueY = "v2";
             series2.tooltipText = "[#000]{valueY.value}[/]";
             series2.tooltip.background.fill = am4core.color("#FFF");
             series2.tooltip.getFillFromObject = false;
@@ -265,7 +270,15 @@
             // Add a legend
             chart.legend = new am4charts.Legend();
             chart.legend.position = "top";
-
+            chart.legend.width = 240;
+            chart.legend.align = "right";
+            chart.legend.data = [{
+              "name": config.series1.name,
+              "fill": config.series1.marker.fill
+            }, {
+              "name": config.series2.name,
+              "fill": config.series2.marker.fill
+            }];
           });
         }
 
@@ -289,7 +302,22 @@
         }
        
         loadData();
-        initChart();
+        initChart(
+          {
+            series1: {
+              name: "Leads",
+              marker: {
+                fill: "#ff0000"
+              }
+            },
+            series2: {
+              name: "Visitor",
+              marker: {
+                fill: "#00ff00"
+              }
+            }
+          }
+        );
       });
     </script>
   </body>
