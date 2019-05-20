@@ -211,8 +211,11 @@
             case "thisweek":
               return arrangeDataForThisWeek(data, typeFilter, timeFilter);
             case "lastweek":
+              return arrangeDataForLastWeek(data, typeFilter, timeFilter);
             case "thismonth":
+              return arrangeDataForThisMonth(data, typeFilter, timeFilter);
             case "lastmonth":
+              return arrangeDataForLastMonth(data, typeFilter, timeFilter);
             case "all":
             case "custom":
               break;
