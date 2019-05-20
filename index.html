@@ -107,13 +107,11 @@
               timeFilter.from = moment().subtract(1, 'days').format("YYYY-MM-DD");
               timeFilter.to = moment().subtract(1, 'days').format("YYYY-MM-DD");
               break;
-              break;
             case "thisweek":
               // Hide custom time filter block
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().startOf('isoWeek').format("YYYY-MM-DD");
               timeFilter.to = moment().format("YYYY-MM-DD");
-              break;
               break;
             case "lastweek":
               // Hide custom time filter block
@@ -121,13 +119,11 @@
               timeFilter.from = moment().subtract(1, 'weeks').startOf('isoWeek').format("YYYY-MM-DD");
               timeFilter.to = moment().subtract(1, 'weeks').endOf('isoWeek').format("YYYY-MM-DD");
               break;
-              break;
             case "thismonth":
               // Hide custom time filter block
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().startOf('month').format("YYYY-MM-DD");
               timeFilter.to = moment().format("YYYY-MM-DD");
-              break;
               break;
             case "lastmonth":
               // Hide custom time filter block
@@ -135,23 +131,19 @@
               timeFilter.from = moment().subtract(1, 'month').startOf('month').format("YYYY-MM-DD");
               timeFilter.to = moment().subtract(1, 'month').endOf('month').format("YYYY-MM-DD");
               break;
-              break;
             case "all":
               // Hide custom time filter block
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = "2000-01-01";
               timeFilter.to = moment().format("YYYY-MM-DD");
               break;
-              break;
             case "custom":
               // Show time-filter-custom
               $(".time-filter-custom").css('display', 'flex');
               break;
-              break;
             default:
               timeFilter.from = moment().format("YYYY-MM-DD");
               timeFilter.to = moment().format("YYYY-MM-DD");
-              break;
               break;
           }
 
@@ -213,7 +205,15 @@
           switch (timeFilter.code) {
             case "today":
               return arrangeDataForToday(data, typeFilter, timeFilter);
-            default:
+            case "yesterday":
+              return arrangeDataForYesterday(data, typeFilter, timeFilter);
+            case "thisweek":
+              return arrangeDataForThisWeek(data, typeFilter, timeFilter);
+            case "lastweek":
+            case "thismonth":
+            case "lastmonth":
+            case "all":
+            case "custom":
               break;
           }
           return [];

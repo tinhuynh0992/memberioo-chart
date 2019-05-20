@@ -50,7 +50,41 @@ function arrangeDataForYesterday(data, typeFilter, timeFilter) {
     }).length;
 
     arrangedData.push({
-      time: '',
+      time: moment(timeFilter.from).add(i, "hour").format("HH:mm"),
+      v1: v1,
+      v2: v2
+    })
+  }
+
+  return arrangedData;
+}
+
+/*
+* @brief: This week: the X property will be day name starting from Monday to Sunday. 
+* You can use 3 letter for day name such as Mon, Tue, Wed, Thu etc.. 
+* This data starting from current week based on today date.
+*/
+function arrangeDataForThisWeek(data, typeFilter, timeFilter) {
+  let arrangedData = [];
+  let v1 = 0;
+  let v2 = 0;
+  for (let i = 0; i < 7; i++) {
+    v1 = data.filter(row => {
+      return (
+        String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase())
+        && (moment(row.Date).format("d") === moment().subtract(i, "day").format("d")
+      ); 
+    }).length;
+
+    v2 = data.filter(row => {
+      return (
+        String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase())
+        && (moment(row.Date).format("d") === moment().subtract(i, "day").format("d")
+      ); 
+    }).length;
+
+    arrangedData.push({
+      time: moment().subtract(i, "day").format("ddd"),
       v1: v1,
       v2: v2
     })
