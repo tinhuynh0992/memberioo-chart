@@ -86,6 +86,7 @@
         var chartData = [];
         var chartConfig = {
           dateFormat: {
+            useInputDateFormat: true,
             period: "hour",
             format: "HH:mm",
           },
@@ -114,6 +115,7 @@
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().format("YYYY-MM-DD");
               timeFilter.to = moment().format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = true;
               chartConfig.dateFormat.period = "hour";
               chartConfig.dateFormat.format = "HH:mm";
               break;
@@ -122,6 +124,7 @@
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().subtract(1, 'days').format("YYYY-MM-DD");
               timeFilter.to = moment().subtract(1, 'days').format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = true;
               chartConfig.dateFormat.period = "hour";
               chartConfig.dateFormat.format = "HH:mm";
               break;
@@ -130,6 +133,7 @@
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().startOf('isoWeek').format("YYYY-MM-DD");
               timeFilter.to = moment().format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = true;
               chartConfig.dateFormat.period = "day";
               chartConfig.dateFormat.format = "EEE";
               break;
@@ -138,6 +142,7 @@
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().subtract(1, 'weeks').startOf('isoWeek').format("YYYY-MM-DD");
               timeFilter.to = moment().subtract(1, 'weeks').endOf('isoWeek').format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = true;
               chartConfig.dateFormat.period = "day";
               chartConfig.dateFormat.format = "EEE";
               break;
@@ -146,6 +151,7 @@
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().startOf('month').format("YYYY-MM-DD");
               timeFilter.to = moment().format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = true;
               chartConfig.dateFormat.period = "day";
               chartConfig.dateFormat.format = "DD";
               break;
@@ -154,6 +160,7 @@
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().subtract(1, 'month').startOf('month').format("YYYY-MM-DD");
               timeFilter.to = moment().subtract(1, 'month').endOf('month').format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = true;
               chartConfig.dateFormat.period = "day";
               chartConfig.dateFormat.format = "DD";
               break;
@@ -162,10 +169,16 @@
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = "2019-01-01";
               timeFilter.to = moment().format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = false;
+              chartConfig.dateFormat.period = "month";
+              chartConfig.dateFormat.format = "MMM yyyy";
               break;
             case "custom":
               // Show time-filter-custom
               $(".time-filter-custom").css('display', 'flex');
+              chartConfig.dateFormat.useInputDateFormat = false;
+              chartConfig.dateFormat.period = "month";
+              chartConfig.dateFormat.format = "MMM yyyy";
               break;
             default:
               timeFilter.from = moment().format("YYYY-MM-DD");
@@ -265,7 +278,9 @@
 
             chart.data = chartData;
 
-            chart.dateFormatter.inputDateFormat = "yyyy-MM-DD HH:mm";
+            if (config.dateFormat.useInputDateFormat) {
+              chart.dateFormatter.inputDateFormat = "yyyy-MM-DD HH:mm";
+            }
 
             var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
             dateAxis.renderer.minGridDistance = 60;
