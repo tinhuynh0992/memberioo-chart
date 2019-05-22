@@ -167,8 +167,6 @@
             case "all":
               // Hide custom time filter block
               $(".time-filter-custom").css('display', 'none');
-              timeFilter.from = "2019-01-01";
-              timeFilter.to = moment().format("YYYY-MM-DD");
               chartConfig.dateFormat.useInputDateFormat = false;
               chartConfig.dateFormat.period = "month";
               chartConfig.dateFormat.format = "MMM yyyy";
@@ -235,6 +233,14 @@
         }
 
         function filterData(data, typeFilter, timeFilter) {
+          if (timeFilter.code === 'all') {
+            return data.filter(row => {
+              return (
+                String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()
+                || String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase()
+              ); 
+            });
+          }
           return data.filter(row => {
             return (
               String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()

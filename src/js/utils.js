@@ -230,18 +230,34 @@ function arrangeDataForLastMonth(data, typeFilter, timeFilter) {
 /*
 * @brief: All Time: the X property will be month name. and it will populate whole data
 */
+function findMinDate(list) {
+  return list.reduce(function (result, date) {
+    return moment(date) < moment(result) ? date : result;
+  }, moment().format("YYYY-MM-DD"));
+}
+function findMaxDate(list) {
+  return list.reduce(function (result, date) {
+    return moment(date) > moment(result) ? date : result;
+  }, "2019-01-01");
+}
 function arrangeDataForAllTime(data, typeFilter, timeFilter) {
   let arrangedData = [];
   let v1 = 0;
   let v2 = 0;
   let i = 0;
+  let timeFilterFrom = findMinDate(data.map(function(row) {
+    return row.Date;
+  }));
+  let timeFilterTo = findMaxDate(data.map(function(row) {
+    return row.Date;
+  }));
   do {
     v1 = data.filter(row => {
       return (
         String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()
         && (
           moment(row.Date).format("YYYY-MM")
-          === moment(timeFilter.from).add(i, "month").format("YYYY-MM")
+          === moment(timeFilterFrom).add(i, "month").format("YYYY-MM")
         )
       ); 
     }).length;
@@ -251,19 +267,19 @@ function arrangeDataForAllTime(data, typeFilter, timeFilter) {
         String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase()
         && (
           moment(row.Date).format("YYYY-MM")
-          === moment(timeFilter.from).add(i, "day").format("YYYY-MM")
+          === moment(timeFilterFrom).add(i, "day").format("YYYY-MM")
         )
       ); 
     }).length;
 
     arrangedData.push({
-      time: moment(timeFilter.from).add(i, "month").format("YYYY-MM-DD"),
+      time: moment(timeFilterFrom).add(i, "month").format("YYYY-MM-DD"),
       v1: v1,
       v2: v2
     });
 
     i++;
-  } while (moment(timeFilter.from).add(i, "month") <= moment(timeFilter.to));
+  } while (moment(timeFilterFrom).add(i, "month") <= moment(timeFilterTo));
 
   return arrangedData;
 }
