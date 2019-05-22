@@ -151,18 +151,18 @@
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().startOf('month').format("YYYY-MM-DD");
               timeFilter.to = moment().format("YYYY-MM-DD");
-              chartConfig.dateFormat.useInputDateFormat = true;
-              chartConfig.dateFormat.period = "day";
-              chartConfig.dateFormat.format = "DD";
+              chartConfig.dateFormat.useInputDateFormat = false;
+              chartConfig.dateFormat.period = "";
+              chartConfig.dateFormat.format = "";
               break;
             case "lastmonth":
               // Hide custom time filter block
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().subtract(1, 'month').startOf('month').format("YYYY-MM-DD");
               timeFilter.to = moment().subtract(1, 'month').endOf('month').format("YYYY-MM-DD");
-              chartConfig.dateFormat.useInputDateFormat = true;
-              chartConfig.dateFormat.period = "day";
-              chartConfig.dateFormat.format = "DD";
+              chartConfig.dateFormat.useInputDateFormat = false;
+              chartConfig.dateFormat.period = "";
+              chartConfig.dateFormat.format = "";
               break;
             case "all":
               // Hide custom time filter block
@@ -279,7 +279,7 @@
             chart.data = chartData;
 
             if (config.dateFormat.useInputDateFormat) {
-              chart.dateFormatter.inputDateFormat = "yyyy-MM-DD HH:mm";
+              chart.dateFormatter.inputDateFormat = "YYYY-MM-DD HH:mm";
             }
 
             var dateAxis = chart.xAxes.push(new am4charts.DateAxis());

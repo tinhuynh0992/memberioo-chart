@@ -175,7 +175,7 @@ function arrangeDataForThisMonth(data, typeFilter, timeFilter) {
     }).length;
 
     arrangedData.push({
-      time: moment(timeFilter.from).add(i, "day").format("YYYY-MM-DD HH:mm"),
+      time: moment(timeFilter.from).add(i, "day").format("YYYY-MM-DD"),
       v1: v1,
       v2: v2
     });
@@ -216,7 +216,7 @@ function arrangeDataForLastMonth(data, typeFilter, timeFilter) {
     }).length;
 
     arrangedData.push({
-      time: moment(timeFilter.from).add(i, "day").format("YYYY-MM-DD HH:mm"),
+      time: moment(timeFilter.from).add(i, "day").format("YYYY-MM-DD"),
       v1: v1,
       v2: v2
     });
@@ -257,7 +257,7 @@ function arrangeDataForAllTime(data, typeFilter, timeFilter) {
     }).length;
 
     arrangedData.push({
-      time: moment(timeFilter.from).add(i, "month").format("YYYY-MM-DD HH:mm"),
+      time: moment(timeFilter.from).add(i, "month").format("YYYY-MM-DD"),
       v1: v1,
       v2: v2
     });
