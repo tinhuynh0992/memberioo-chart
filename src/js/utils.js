@@ -279,6 +279,35 @@ function arrangeDataForCustomTime(data, typeFilter, timeFilter) {
   let v1 = 0;
   let v2 = 0;
   let i = 0;
- 
+  do {
+    v1 = data.filter(row => {
+      return (
+        String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()
+        && (
+          moment(row.Date).format("YYYY-MM")
+          === moment(timeFilter.from).add(i, "month").format("YYYY-MM")
+        )
+      ); 
+    }).length;
+
+    v2 = data.filter(row => {
+      return (
+        String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase()
+        && (
+          moment(row.Date).format("YYYY-MM")
+          === moment(timeFilter.from).add(i, "day").format("YYYY-MM")
+        )
+      ); 
+    }).length;
+
+    arrangedData.push({
+      time: moment(timeFilter.from).add(i, "month").format("YYYY-MM-DD"),
+      v1: v1,
+      v2: v2
+    });
+
+    i++;
+  } while (moment(timeFilter.from).add(i, "month") <= moment(timeFilter.to));
+
   return arrangedData;
 }

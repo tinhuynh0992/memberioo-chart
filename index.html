@@ -105,7 +105,7 @@
         };
         var am4coreIsReady = false;
 
-        $(".datepicker").datepicker();
+        $(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
 
         $(".time-filter-code").change(function() {
           timeFilter.code = $(this).val();
