@@ -39,10 +39,10 @@
         <div class="type-filter flex">
           <div>
             <select class="type-input form-control" data-type="1">
-              <option value="visitor" selected>Visitor</option>
-              <option value="pageviews">Pageviews</option>
-              <option value="leads">Leads</option>
-              <option value="sales">Sales</option>
+              <option value="Visitor" selected>Visitor</option>
+              <option value="Pageviews">Pageviews</option>
+              <option value="Leads">Leads</option>
+              <option value="Sales">Sales</option>
             </select>
           </div>
           <div class="flex items-center mx-4">
@@ -50,10 +50,10 @@
           </div>
           <div>
             <select class="type-input form-control" data-type="2">
-              <option value="visitor">Visitor</option>
-              <option value="pageviews" selected>Pageviews</option>
-              <option value="leads">Leads</option>
-              <option value="sales">Sales</option>
+              <option value="Visitor">Visitor</option>
+              <option value="Pageviews" selected>Pageviews</option>
+              <option value="Leads">Leads</option>
+              <option value="Sales">Sales</option>
             </select>
           </div>
         </div>
@@ -78,8 +78,8 @@
           to: moment().format("YYYY-MM-DD")
         };
         var typeFilter = {
-          type1: "visitor",
-          type2: "pageviews"
+          type1: "Visitor",
+          type2: "Pageviews"
         }
         var chart = undefined;
         var rawChartData = [];
@@ -91,13 +91,13 @@
             format: "HH:mm",
           },
           series1: {
-            name: "Leads",
+            name: "Visitor",
             marker: {
               fill: "#ff0000"
             }
           },
           series2: {
-            name: "Visitor",
+            name: "Pageviews",
             marker: {
               fill: "#00ff00"
             }
@@ -186,8 +186,7 @@
 
           // Redraw chart
           chartData = prepareData(rawChartData, typeFilter, timeFilter);
-          initChart(chartConfig);
-          drawChart();
+          drawChart(chartConfig);
         });
 
         $(".time-filter-custom input[name=from]").change(function() {
@@ -195,35 +194,36 @@
 
           // Redraw chart
           chartData = prepareData(rawChartData, typeFilter, timeFilter);
-          initChart(chartConfig);
-          drawChart();
+          drawChart(chartConfig);
         });
 
         $(".time-filter-custom input[name=to]").change(function() {
           timeFilter.to = $(this).val();
           // Redraw chart
           chartData = prepareData(rawChartData, typeFilter, timeFilter);
-          initChart(chartConfig);
-          drawChart();
+          drawChart(chartConfig);
         });
         
         $(".type-input").change(function() {
           const typeIndex = Number($(this).data("type"));
           if (!isNaN(typeIndex)) {
             typeFilter[`type${typeIndex}`] = $(this).val();
+            // Update chart config
+            chartConfig[`series${typeIndex}`].name = $(this).val();
+            // chartConfig[`series${typeIndex}`].marker = getColorOfSeries(chartConfig[`series${typeIndex}`].name);
           }
+
+
 
           // Redraw chart
           chartData = prepareData(rawChartData, typeFilter, timeFilter);
-          initChart(chartConfig);
-          drawChart();
+          drawChart(chartConfig);
         })
 
         // Re-draw chart when window resize 
         $( window ).resize(function() {
           // Redraw chart
-          initChart(chartConfig);
-          drawChart();
+          drawChart(chartConfig);
         });
 
         function prepareData(data, typeFilter, timeFilter) {
@@ -283,7 +283,7 @@
           return [];
         }
 
-        function initChart(config) {
+        function drawChart(config) {
           am4core.ready(function() {
             am4coreIsReady = true;
 
@@ -347,31 +347,15 @@
             valueAxis.minZoomed = 0;
             valueAxis.minZoomed = 1000;
 
-            chart.events.on("ready", function(ev) {
-              valueAxis.min = valueAxis.minZoomed;
-              valueAxis.max = valueAxis.maxZoomed;
-            });
-            // valueAxis.strictMinMax = true;
-
             // Add a legend
             chart.legend = new am4charts.Legend();
-            // chart.legend.position = "top";
-            // chart.legend.width = 240;
-            // chart.legend.align = "right";
-            // chart.legend.data = [{
-            //   "name": config.series1.name,
-            //   "fill": config.series1.marker.fill
-            // }, {
-            //   "name": config.series2.name,
-            //   "fill": config.series2.marker.fill
-            // }];
+            chart.legend.useDefaultMarker = true;
+            let marker = chart.legend.markers.template.children.getIndex(0);
+            marker.cornerRadius(12, 12, 12, 12);
+            marker.strokeWidth = 2;
+            marker.strokeOpacity = 1;
+            marker.stroke = am4core.color("#ccc");
           });
-        }
-
-        function drawChart() {
-          // if (am4coreIsReady && chart) {
-            chart.validateData();
-          // }
         }
 
         function loadData() {
@@ -382,15 +366,13 @@
             success: function(response) { 
               rawChartData = response.data;
               chartData = prepareData(rawChartData, typeFilter, timeFilter);
-              initChart(chartConfig);
-              drawChart();
+              drawChart(chartConfig);
             }
           });
         }
        
         loadData();
-        initChart(chartConfig);
-        drawChart();
+        drawChart(chartConfig);
       });
     </script>
   </body>
