@@ -219,6 +219,13 @@
           drawChart();
         })
 
+        // Re-draw chart when window resize 
+        $( window ).resize(function() {
+          // Redraw chart
+          initChart(chartConfig);
+          drawChart();
+        });
+
         function prepareData(data, typeFilter, timeFilter) {
           console.log("DEBUG prepareData", typeFilter, timeFilter);
           let filteredData = filterData(data, typeFilter, timeFilter);
