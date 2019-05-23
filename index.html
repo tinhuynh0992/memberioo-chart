@@ -69,6 +69,7 @@
     <script src="./libs/moment/moment.min.js"></script>
     <script src="./libs/amcharts/core.js"></script>
     <script src="./libs/amcharts/charts.js"></script>
+    <script src="./src/js/config.js"></script>
     <script src="./src/js/utils.js"></script>
     <script>
       $(document).ready(function() {
@@ -92,15 +93,13 @@
           },
           series1: {
             name: "Visitor",
-            marker: {
-              fill: "#ff0000"
-            }
+            stroke: TYPES_CONFIG["Visitor"].series.stroke,
+            fill: TYPES_CONFIG["Visitor"].series.fill
           },
           series2: {
             name: "Pageviews",
-            marker: {
-              fill: "#00ff00"
-            }
+            stroke: TYPES_CONFIG["Pageviews"].series.stroke,
+            fill: TYPES_CONFIG["Pageviews"].series.fill
           }
         };
         var am4coreIsReady = false;
@@ -210,10 +209,12 @@
             typeFilter[`type${typeIndex}`] = $(this).val();
             // Update chart config
             chartConfig[`series${typeIndex}`].name = $(this).val();
-            // chartConfig[`series${typeIndex}`].marker = getColorOfSeries(chartConfig[`series${typeIndex}`].name);
+            chartConfig[`series${typeIndex}`] = Object.assign(
+              {},
+              chartConfig[`series${typeIndex}`],
+              TYPES_CONFIG[$(this).val()].series
+            );
           }
-
-
 
           // Redraw chart
           chartData = prepareData(rawChartData, typeFilter, timeFilter);
@@ -324,6 +325,10 @@
             series.fillOpacity = 0.6;
             series.strokeWidth = 2;
             series.stacked = true;
+            series.stroke = am4core.color(config.series1.stroke);
+            series.fill = am4core.color(config.series1.fill);  
+            series.invalidate();
+
 
             // Configure series2
             var series2 = chart.series.push(new am4charts.LineSeries());
@@ -339,6 +344,9 @@
             series2.fillOpacity = 0.6;
             series2.stacked = true;
             series2.strokeWidth = 2;
+            series2.stroke = am4core.color(config.series2.stroke);
+            series2.fill = am4core.color(config.series2.fill);  
+            series2.invalidate();
 
             chart.cursor = new am4charts.XYCursor();
             chart.cursor.xAxis = dateAxis;
@@ -347,7 +355,7 @@
             valueAxis.minZoomed = 0;
             valueAxis.minZoomed = 1000;
 
-            // Add a legend
+            // Config chart legend
             chart.legend = new am4charts.Legend();
             chart.legend.useDefaultMarker = true;
             let marker = chart.legend.markers.template.children.getIndex(0);
@@ -355,6 +363,8 @@
             marker.strokeWidth = 2;
             marker.strokeOpacity = 1;
             marker.stroke = am4core.color("#ccc");
+            // Update legend
+            chart.feedLegend();
           });
         }
 
