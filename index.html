@@ -317,11 +317,11 @@
             series.dataFields.dateX = "time";
             series.name = config.series1.name;
             series.dataFields.valueY = "v1";
-            series.tooltipText = "[#000]{valueY.value}[/]";
-            series.tooltip.background.fill = am4core.color("#FFF");
-            series.tooltip.getStrokeFromObject = true;
-            series.tooltip.background.strokeWidth = 3;
-            series.tooltip.getFillFromObject = false;
+            // series.tooltipText = "[#000]{valueY.value}[/]";
+            // series.tooltip.background.fill = am4core.color("#FFF");
+            // series.tooltip.getStrokeFromObject = true;
+            // series.tooltip.background.strokeWidth = 3;
+            // series.tooltip.getFillFromObject = false;
             series.fillOpacity = 0.6;
             series.strokeWidth = 2;
             series.stacked = true;
@@ -335,11 +335,7 @@
             series2.dataFields.dateX = "time";
             series2.name = config.series2.name;
             series2.dataFields.valueY = "v2";
-            series2.tooltipText = "[#000]{valueY.value}[/]";
-            series2.tooltip.background.fill = am4core.color("#FFF");
-            series2.tooltip.getFillFromObject = false;
-            series2.tooltip.getStrokeFromObject = true;
-            series2.tooltip.background.strokeWidth = 3;
+
             series2.sequencedInterpolation = true;
             series2.fillOpacity = 0.6;
             series2.stacked = true;
@@ -347,6 +343,18 @@
             series2.stroke = am4core.color(config.series2.stroke);
             series2.fill = am4core.color(config.series2.fill);  
             series2.invalidate();
+
+            series2.tooltipText = 
+              `[bold #000]{time}[/]
+              [#000]${config.series1.name}: {v1}[/]
+              [#000]${config.series2.name}: {v2}[/]`
+            ;
+            // series2.tooltipText = "[#000]{valueY.value}[/]";
+            series2.tooltip.background.fill = am4core.color("#FFF");
+            series2.tooltip.getFillFromObject = false;
+            series2.tooltip.getStrokeFromObject = false;
+            series2.tooltip.background.stroke = am4core.color("#000");
+            series2.tooltip.background.strokeWidth = 1;
 
             chart.cursor = new am4charts.XYCursor();
             chart.cursor.xAxis = dateAxis;
