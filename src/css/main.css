@@ -3,12 +3,20 @@
   width: 80%;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .flex {
   display: flex;
 }
 
 .items-center {
   align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .form-control {
