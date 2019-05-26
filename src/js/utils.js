@@ -257,29 +257,29 @@ function arrangeDataForAllTime(data, typeFilter, timeFilter) {
         String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()
         && (
           moment(row.Date).format("YYYY-MM")
-          === moment(timeFilterFrom).add(i, "month").format("YYYY-MM")
+          === moment(timeFilterFrom).add(i, "months").format("YYYY-MM")
         )
       ); 
     }).length;
-
+    
     v2 = data.filter(row => {
       return (
         String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase()
         && (
           moment(row.Date).format("YYYY-MM")
-          === moment(timeFilterFrom).add(i, "day").format("YYYY-MM")
+          === moment(timeFilterFrom).add(i, "months").format("YYYY-MM")
         )
       ); 
     }).length;
 
     arrangedData.push({
-      time: moment(timeFilterFrom).add(i, "month").format("YYYY-MM-DD"),
+      time: moment(timeFilterFrom).add(i, "months").format("YYYY-MM"),
       v1: v1,
       v2: v2
     });
 
     i++;
-  } while (moment(timeFilterFrom).add(i, "month") <= moment(timeFilterTo));
+  } while (moment(timeFilterFrom).add(i, "months") <= moment(timeFilterTo));
 
   return arrangedData;
 }

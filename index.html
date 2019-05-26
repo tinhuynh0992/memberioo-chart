@@ -323,6 +323,14 @@
             series.fill = am4core.color(config.series1.fill);  
             series.invalidate();
 
+            // Make bullets for series 1
+            var bullet = series.bullets.push(new am4charts.CircleBullet());
+            bullet.circle.strokeWidth = 2;
+            bullet.circle.radius = 4;
+            bullet.circle.fill = am4core.color("#fff");
+
+            var bullethover = bullet.states.create("hover");
+            bullethover.properties.scale = 1.3;
 
             // Configure series2
             var series2 = chart.series.push(new am4charts.LineSeries());
@@ -337,9 +345,18 @@
             series2.fill = am4core.color(config.series2.fill);  
             series2.invalidate();
 
+            // Make bullets for series 2
+            var bullet2 = series2.bullets.push(new am4charts.CircleBullet());
+            bullet2.circle.strokeWidth = 2;
+            bullet2.circle.radius = 4;
+            bullet2.circle.fill = am4core.color("#fff");
+
+            var bullethover = bullet2.states.create("hover");
+            bullethover.properties.scale = 1.3;
+
             // Configure tooltip for both series
             series2.tooltipText = 
-              `[bold #000]{time}[/]
+              `[#000]{time}[/]
               [#000]${config.series1.name}:[/] [bold #000]{v1}[/]
               [#000]${config.series2.name}:[/] [bold #000]{v2}[/]`
             ;
@@ -349,12 +366,14 @@
             series2.tooltip.background.stroke = am4core.color("#000");
             series2.tooltip.background.strokeWidth = 1;
 
+
+
             chart.cursor = new am4charts.XYCursor();
             chart.cursor.xAxis = dateAxis;
 
-            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-            valueAxis.minZoomed = 0;
-            valueAxis.minZoomed = 1000;
+            // var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            // valueAxis.minZoomed = 0;
+            // valueAxis.minZoomed = 1000;
 
             // Config chart legend
             chart.legend = new am4charts.Legend();
@@ -372,7 +391,8 @@
         function loadData() {
           $.ajax({ 
             type: 'GET', 
-            url: 'https://tinhuynh0992.github.io/memberioo-chart/data/data.json', 
+            url: 'http://localhost:5000/data/data.json', 
+            // url: 'https://tinhuynh0992.github.io/memberioo-chart/data/data.json', 
             dataType: 'json',
             success: function(response) { 
               rawChartData = response.data;
