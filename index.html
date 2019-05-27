@@ -133,18 +133,18 @@
             case "thisweek":
               // Hide custom time filter block
               $(".time-filter-custom").css('display', 'none');
-              timeFilter.from = moment().startOf('isoWeek').format("YYYY-MM-DD");
-              timeFilter.to = moment().format("YYYY-MM-DD");
-              chartConfig.dateFormat.useInputDateFormat = true;
+              timeFilter.from = moment().startOf('week').format("YYYY-MM-DD");
+              timeFilter.to = moment().endOf('week').format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = false;
               chartConfig.dateFormat.period = "day";
               chartConfig.dateFormat.format = "EEE";
               break;
             case "lastweek":
               // Hide custom time filter block
               $(".time-filter-custom").css('display', 'none');
-              timeFilter.from = moment().subtract(1, 'weeks').startOf('isoWeek').format("YYYY-MM-DD");
-              timeFilter.to = moment().subtract(1, 'weeks').endOf('isoWeek').format("YYYY-MM-DD");
-              chartConfig.dateFormat.useInputDateFormat = true;
+              timeFilter.from = moment().subtract(1, 'weeks').startOf('week').format("YYYY-MM-DD");
+              timeFilter.to = moment().subtract(1, 'weeks').endOf('week').format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = false;
               chartConfig.dateFormat.period = "day";
               chartConfig.dateFormat.format = "EEE";
               break;
@@ -152,7 +152,7 @@
               // Hide custom time filter block
               $(".time-filter-custom").css('display', 'none');
               timeFilter.from = moment().startOf('month').format("YYYY-MM-DD");
-              timeFilter.to = moment().format("YYYY-MM-DD");
+              timeFilter.to = moment().endOf('month').format("YYYY-MM-DD");
               chartConfig.dateFormat.useInputDateFormat = false;
               chartConfig.dateFormat.period = "";
               chartConfig.dateFormat.format = "";
