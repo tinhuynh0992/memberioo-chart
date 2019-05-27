@@ -314,6 +314,10 @@
 
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.tooltip.disabled = true;
+            valueAxis.renderer.labels.template.adapter.add("text", function(text, target) {
+              return text.match(/\./) ? "" : text;
+            });
+            valueAxis.min = 0;
 
             // Configure series1
             var series = chart.series.push(new am4charts.LineSeries());
@@ -358,7 +362,6 @@
             bullethover.properties.scale = 1.3;
 
             // Configure tooltip for both series
-            // series2.tooltip.label.minWidth = 200;
             series2.tooltipHTML = `
               <div style="min-width: 150px;">
                 <div style="color: #000">{time}</div>
@@ -387,11 +390,6 @@
 
             chart.cursor = new am4charts.XYCursor();
             chart.cursor.xAxis = dateAxis;
-
-            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-            valueAxis.allowDecimals = false;
-            // valueAxis.minZoomed = 0;
-            // valueAxis.minZoomed = 1000;
 
             // Config chart legend
             chart.legend = new am4charts.Legend();
