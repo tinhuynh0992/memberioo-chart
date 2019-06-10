@@ -150,11 +150,19 @@
             pieSeries.slices.template.stroke = am4core.color("#fff");
             pieSeries.slices.template.strokeWidth = 2;
             pieSeries.slices.template.strokeOpacity = 1;
+            pieSeries.slices.template.tooltipText = "";
+
+            pieSeries.labels.template.text = "{value.percent.formatNumber('#,###.#')}%";
 
             // This creates initial animation
             pieSeries.hiddenState.properties.opacity = 1;
             pieSeries.hiddenState.properties.endAngle = -90;
             pieSeries.hiddenState.properties.startAngle = -90;
+
+            // Add a legend
+            chart.legend = new am4charts.Legend();
+            chart.legend.position = "right";
+            chart.legend.valueLabels.template.text = "";
 
           });
         }
