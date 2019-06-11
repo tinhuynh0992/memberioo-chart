@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MemberIOO - Charts</title>
+    <link rel="stylesheet" href="./libs/jquery/jquery-ui.css">
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <style>
+      .chart {
+        width: 100%;
+        height: 500px;
+      }
+      [aria-labelledby$="-title"] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main bg-gray p-4 mx-auto">
+      <div class="bg-white rounded-md">
+        <div>
+          <div id="chart" class="chart"></div>
+        </div>
+      </div>
+      
+    </div>
+    <script src="./libs/jquery/jquery-1.12.4.js"></script>
+    <script src="./libs/jquery/jquery-ui.js"></script>
+    <script src="./libs/moment/moment.min.js"></script>
+    <script src="./libs/amcharts/core.js"></script>
+    <script src="./libs/amcharts/charts.js"></script>
+    <script src="./src/js/config.js"></script>
+    <script src="./src/js/utils.js"></script>
+    <script>
+      $(document).ready(function() {
+        var typeFilter = {}
+        var chart = undefined;
+        var rawChartData = [];
+        var chartData = [{
+          "year": "2015",
+          "goal": 800,
+          "achievement": 678,
+        }, {
+          "year": "2016",
+          "goal": 1200,
+          "achievement": 999,
+        }, {
+          "year": "2017",
+          "goal": 2000,
+          "achievement": 1700,
+        }, {
+          "year": "2018",
+          "goal": 5000,
+          "achievement": 4560,
+        }, {
+          "year": "2019",
+          "goal": 20000,
+          "achievement": 15900,
+        }, {
+          "year": "2020",
+          "goal": 25000,
+          "achievement": 22000,
+        }, {
+          "year": "2021",
+          "goal": 100000,
+          "achievement": 87000,
+        }];
+        var chartConfig = {
+          dateFormat: {
+            useInputDateFormat: true,
+            period: "hour",
+            format: "HH:mm",
+          },
+          series1: {
+            name: "Visitor",
+            stroke: TYPES_CONFIG["Visitor"].series.stroke,
+            fill: TYPES_CONFIG["Visitor"].series.fill
+          },
+          series2: {
+            name: "Pageviews",
+            stroke: TYPES_CONFIG["Pageviews"].series.stroke,
+            fill: TYPES_CONFIG["Pageviews"].series.fill
+          }
+        };
+        var am4coreIsReady = false;
+
+        function drawChart(config) {
+          am4core.ready(function() {
+            // Create chart instance
+            chart = am4core.create("chart", am4charts.XYChart);
+
+            chart.data = chartData;
+
+            chart.legend = new am4charts.Legend();
+
+            // Create axes
+            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+            categoryAxis.dataFields.category = "year";
+            categoryAxis.renderer.grid.template.opacity = 0;
+
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.min = 0;
+            valueAxis.renderer.grid.template.opacity = 0;
+            valueAxis.renderer.ticks.template.strokeOpacity = 0.5;
+            valueAxis.renderer.ticks.template.stroke = am4core.color("#495C43");
+            valueAxis.renderer.ticks.template.length = 10;
+            valueAxis.renderer.line.strokeOpacity = 0.5;
+            valueAxis.renderer.baseGrid.disabled = true;
+            valueAxis.renderer.minGridDistance = 40;
+
+            // Create series
+            function createSeries(field, name) {
+              var series = chart.series.push(new am4charts.ColumnSeries());
+              series.dataFields.valueY = field;
+              series.dataFields.categoryX = "year";
+              series.stacked = true;
+              series.name = name;
+              
+              var labelBullet = series.bullets.push(new am4charts.LabelBullet());
+              labelBullet.locationX = 0.5;
+              labelBullet.label.text = "{valueX}";
+              labelBullet.label.fill = am4core.color("#fff");
+            }
+
+            createSeries("goal", "Goal");
+            createSeries("achievement", "Achievement");
+
+          });
+        }
+
+        drawChart(chartConfig);
+      });
+    </script>
+  </body>
+</html>
