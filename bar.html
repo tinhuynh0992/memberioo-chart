@@ -36,31 +36,43 @@
         var chart = undefined;
         var rawChartData = [];
         var chartData = [{
-          "year": "2015",
+          "time": "2018-01",
           "goal": 800,
           "achievement": 678,
         }, {
-          "year": "2016",
+          "time": "2018-02",
           "goal": 1200,
           "achievement": 999,
         }, {
-          "year": "2017",
+          "time": "2018-03",
           "goal": 2000,
           "achievement": 1700,
         }, {
-          "year": "2018",
+          "time": "2018-04",
           "goal": 5000,
           "achievement": 4560,
         }, {
-          "year": "2019",
+          "time": "2018-05",
           "goal": 20000,
           "achievement": 15900,
         }, {
-          "year": "2020",
+          "time": "2018-06",
           "goal": 25000,
           "achievement": 22000,
         }, {
-          "year": "2021",
+          "time": "2018-07",
+          "goal": 100000,
+          "achievement": 87000,
+        }, {
+          "time": "2018-08",
+          "goal": 100000,
+          "achievement": 87000,
+        }, {
+          "time": "2018-09",
+          "goal": 100000,
+          "achievement": 87000,
+        }, {
+          "time": "2018-10",
           "goal": 100000,
           "achievement": 87000,
         }];
@@ -89,13 +101,18 @@
             chart = am4core.create("chart", am4charts.XYChart);
 
             chart.data = chartData;
+            chart.dateFormatter.inputDateFormat = "YYYY-MM";
 
             chart.legend = new am4charts.Legend();
 
             // Create axes
-            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-            categoryAxis.dataFields.category = "year";
-            categoryAxis.renderer.grid.template.opacity = 0;
+            var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+            dateAxis.dateFormats.setKey(
+              "month",
+              "MMM yyyy"
+            );
+            // categoryAxis.dataFields.category = "year";
+            // categoryAxis.renderer.grid.template.opacity = 0;
 
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.min = 0;
@@ -111,7 +128,7 @@
             function createSeries(field, name) {
               var series = chart.series.push(new am4charts.ColumnSeries());
               series.dataFields.valueY = field;
-              series.dataFields.categoryX = "year";
+              series.dataFields.dateX = "time";
               series.stacked = true;
               series.name = name;
               
