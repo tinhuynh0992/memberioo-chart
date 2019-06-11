@@ -15,48 +15,12 @@
     </style>
   </head>
   <body>
-    <div class="main bg-gray mx-auto">
-      <div class="time-filter flex mb-4">
-        <div class="time-filter-label flex items-center mr-4">
-          <div>Filter</div>
-        </div>
-        <div class="flex items-center mr-4">
-          <select class="time-filter-code form-control">
-            <option value="today" selected>Today</option>
-            <option value="yesterday">Yesterday</option>
-            <option value="thisweek">This week</option>
-            <option value="lastweek">Last week</option>
-            <option value="thismonth">This month</option>
-            <option value="lastmonth">Last month</option>
-            <option value="all">All Time</option>
-            <option value="custom">Custom Date</option>
-          </select>
-        </div>
-        <div class="time-filter-custom" style="display: none;">
-          <input type="text" class="datepicker form-control" name="from" />
-          <input type="text" class="datepicker form-control" name="to" />
-        </div>
-      </div>
-
-      <div class="bg-white rounded-md py-6 mx-4 my-6">
+    <div class="main bg-gray p-4 mx-auto">
+      <div class="bg-white rounded-md">
         <div class="type-filter flex">
           <div>
-            <select class="type-input form-control" data-type="1">
-              <option value="Visitor" selected>Visitor</option>
-              <option value="Pageviews">Pageviews</option>
-              <option value="Leads">Leads</option>
-              <option value="Sales">Sales</option>
-            </select>
-          </div>
-          <div class="flex items-center mx-4">
-            <div>vs</div>
-          </div>
-          <div>
             <select class="type-input form-control" data-type="2">
-              <option value="Visitor">Visitor</option>
-              <option value="Pageviews" selected>Pageviews</option>
-              <option value="Leads">Leads</option>
-              <option value="Sales">Sales</option>
+              <option value="">Product: All Products</option>
             </select>
           </div>
         </div>
@@ -76,45 +40,19 @@
     <script src="./src/js/utils.js"></script>
     <script>
       $(document).ready(function() {
-        var timeFilter = {
-          code: "today",
-          from: moment().format("YYYY-MM-DD"),
-          to: moment().format("YYYY-MM-DD")
-        };
-        var typeFilter = {
-          type1: "Visitor",
-          type2: "Pageviews"
-        }
+        var typeFilter = {}
         var chart = undefined;
         var rawChartData = [];
         var chartData = [
           {
-            "country": "Lithuania",
+            "country": "Gross Revenue",
             "litres": 501.9
           }, {
-            "country": "Czech Republic",
+            "country": "Net Revenue",
             "litres": 301.9
           }, {
-            "country": "Ireland",
+            "country": "Refund Amount",
             "litres": 201.1
-          }, {
-            "country": "Germany",
-            "litres": 165.8
-          }, {
-            "country": "Australia",
-            "litres": 139.9
-          }, {
-            "country": "Austria",
-            "litres": 128.3
-          }, {
-            "country": "UK",
-            "litres": 99
-          }, {
-            "country": "Belgium",
-            "litres": 60
-          }, {
-            "country": "The Netherlands",
-            "litres": 50
           }
         ];
         var chartConfig = {
