@@ -36,45 +36,55 @@
         var chart = undefined;
         var rawChartData = [];
         var chartData = [{
-          "time": "2018-01",
-          "goal": 800,
-          "achievement": 678,
+          time: "2018-01",
+          goal: 800,
+          achievement: 678,
+          bullet: ""
         }, {
-          "time": "2018-02",
-          "goal": 1200,
-          "achievement": 999,
+          time: "2018-02",
+          goal: 1200,
+          achievement: 999,
+          bullet: ""
         }, {
-          "time": "2018-03",
-          "goal": 2000,
-          "achievement": 1700,
+          time: "2018-03",
+          goal: 2000,
+          achievement: 1700,
+          bullet: ""
         }, {
-          "time": "2018-04",
-          "goal": 5000,
-          "achievement": 4560,
+          time: "2018-04",
+          goal: 5000,
+          achievement: 4560,
+          bullet: ""
         }, {
-          "time": "2018-05",
-          "goal": 20000,
-          "achievement": 15900,
+          time: "2018-05",
+          goal: 20000,
+          achievement: 15900,
+          bullet: ""
         }, {
-          "time": "2018-06",
-          "goal": 25000,
-          "achievement": 22000,
+          time: "2018-06",
+          goal: 25000,
+          achievement: 22000,
+          bullet: ""
         }, {
-          "time": "2018-07",
-          "goal": 100000,
-          "achievement": 87000,
+          time: "2018-07",
+          goal: 100000,
+          achievement: 87000,
+          bullet: ""
         }, {
-          "time": "2018-08",
-          "goal": 100000,
-          "achievement": 87000,
+          time: "2018-08",
+          goal: 100000,
+          achievement: 87000,
+          bullet: ""
         }, {
-          "time": "2018-09",
-          "goal": 100000,
-          "achievement": 87000,
+          time: "2018-09",
+          goal: 100000,
+          achievement: 87000,
+          bullet: "http://localhost:5000/src/images/star.svg"
         }, {
-          "time": "2018-10",
-          "goal": 100000,
-          "achievement": 87000,
+          time: "2018-10",
+          goal: 100000,
+          achievement: 87000,
+          bullet: ""
         }];
         var chartConfig = {
           dateFormat: {
@@ -126,21 +136,34 @@
             valueAxis.renderer.minGridDistance = 40;
 
             // Create series
-            function createSeries(field, name) {
+            function createSeries(field, name, showBullet = false) {
               var series = chart.series.push(new am4charts.ColumnSeries());
               series.dataFields.valueY = field;
               series.dataFields.dateX = "time";
               series.stacked = true;
               series.name = name;
               
-              var labelBullet = series.bullets.push(new am4charts.LabelBullet());
-              labelBullet.locationX = 0.5;
-              labelBullet.label.text = "{valueX}";
-              labelBullet.label.fill = am4core.color("#fff");
+              if (showBullet) {
+                var bullet = series.bullets.push(new am4charts.Bullet());
+                var image = bullet.createChild(am4core.Image);
+                image.width = 120;
+                image.height = 120;
+                image.horizontalCenter = "middle";
+                image.verticalCenter = "bottom";
+                image.dy = 70;
+                image.y = am4core.percent(100);
+                image.propertyFields.href = "bullet";
+                image.tooltipHTML = series.columns.template.tooltipHTML;
+                image.propertyFields.fill = "color";
+                image.filters.push(new am4core.DropShadowFilter());
+              }
+
             }
 
             createSeries("goal", "Goal");
-            createSeries("achievement", "Achievement");
+            createSeries("achievement", "Achievement", true);
+
+
           });
         }
 
