@@ -101,8 +101,11 @@
             chart = am4core.create("chart", am4charts.XYChart);
 
             chart.data = chartData;
+            // Set input date format
             chart.dateFormatter.inputDateFormat = "YYYY-MM";
-
+            // Set color list
+            chart.colors.list = [ am4core.color("#52B947"), am4core.color("#8FDA87") ];
+            // Show legend
             chart.legend = new am4charts.Legend();
 
             // Create axes
@@ -111,8 +114,6 @@
               "month",
               "MMM yyyy"
             );
-            // categoryAxis.dataFields.category = "year";
-            // categoryAxis.renderer.grid.template.opacity = 0;
 
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.min = 0;
@@ -140,7 +141,6 @@
 
             createSeries("goal", "Goal");
             createSeries("achievement", "Achievement");
-
           });
         }
 
