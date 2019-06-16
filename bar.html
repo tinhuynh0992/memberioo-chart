@@ -146,11 +146,11 @@
               if (showBullet) {
                 var bullet = series.bullets.push(new am4charts.Bullet());
                 var image = bullet.createChild(am4core.Image);
-                image.width = 120;
-                image.height = 120;
+                image.width = 24;
+                image.height = 24;
                 image.horizontalCenter = "middle";
                 image.verticalCenter = "bottom";
-                image.dy = 70;
+                image.dy = 36;
                 image.y = am4core.percent(100);
                 image.propertyFields.href = "bullet";
                 image.tooltipHTML = series.columns.template.tooltipHTML;
@@ -162,8 +162,6 @@
 
             createSeries("goal", "Goal");
             createSeries("achievement", "Achievement", true);
-
-
           });
         }
 
