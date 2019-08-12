@@ -3,7 +3,7 @@
 		{
 			"ID": 1,
 			"Date": "2018-10-30 14:34:59",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 564,
 			"Order_ID": 257
 		},
@@ -24,7 +24,7 @@
 		{
 			"ID": 4,
 			"Date": "2018-09-28 12:24:20",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 448,
 			"Order_ID": 105
 		},
@@ -45,7 +45,7 @@
 		{
 			"ID": 7,
 			"Date": "2018-09-02 23:45:46",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 817,
 			"Order_ID": 222
 		},
@@ -59,7 +59,7 @@
 		{
 			"ID": 9,
 			"Date": "2019-01-22 08:03:25",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 95,
 			"Order_ID": 800
 		},
@@ -115,14 +115,14 @@
 		{
 			"ID": 17,
 			"Date": "2018-05-10 03:52:49",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 908,
 			"Order_ID": 69
 		},
 		{
 			"ID": 18,
 			"Date": "2018-07-11 22:06:03",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 531,
 			"Order_ID": 524
 		},
@@ -178,7 +178,7 @@
 		{
 			"ID": 26,
 			"Date": "2018-09-12 21:26:24",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 724,
 			"Order_ID": 980
 		},
@@ -241,14 +241,14 @@
 		{
 			"ID": 35,
 			"Date": "2018-03-16 13:18:38",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 119,
 			"Order_ID": 907
 		},
 		{
 			"ID": 36,
 			"Date": "2017-09-09 10:02:42",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 406,
 			"Order_ID": 34
 		},
@@ -388,7 +388,7 @@
 		{
 			"ID": 56,
 			"Date": "2019-01-12 05:09:06",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 436,
 			"Order_ID": 381
 		},
@@ -423,7 +423,7 @@
 		{
 			"ID": 61,
 			"Date": "2017-09-10 03:12:09",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 605,
 			"Order_ID": 306
 		},
@@ -605,7 +605,7 @@
 		{
 			"ID": 87,
 			"Date": "2017-10-17 10:19:04",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 795,
 			"Order_ID": 899
 		},
@@ -633,7 +633,7 @@
 		{
 			"ID": 91,
 			"Date": "2018-06-03 14:03:14",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 990,
 			"Order_ID": 772
 		},
@@ -745,7 +745,7 @@
 		{
 			"ID": 107,
 			"Date": "2019-03-07 03:16:57",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 805,
 			"Order_ID": 241
 		},
@@ -794,7 +794,7 @@
 		{
 			"ID": 114,
 			"Date": "2019-05-05 21:26:58",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 973,
 			"Order_ID": 35
 		},
@@ -850,7 +850,7 @@
 		{
 			"ID": 122,
 			"Date": "2018-05-18 06:02:38",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 482,
 			"Order_ID": 312
 		},
@@ -871,7 +871,7 @@
 		{
 			"ID": 125,
 			"Date": "2018-06-27 20:53:23",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 200,
 			"Order_ID": 466
 		},
@@ -899,7 +899,7 @@
 		{
 			"ID": 129,
 			"Date": "2017-09-06 12:01:38",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 566,
 			"Order_ID": 819
 		},
@@ -920,7 +920,7 @@
 		{
 			"ID": 132,
 			"Date": "2019-08-01 02:38:19",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 739,
 			"Order_ID": 378
 		},
@@ -976,7 +976,7 @@
 		{
 			"ID": 140,
 			"Date": "2018-07-12 16:22:25",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 516,
 			"Order_ID": 35
 		},
@@ -1004,7 +1004,7 @@
 		{
 			"ID": 144,
 			"Date": "2018-10-29 15:18:09",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 843,
 			"Order_ID": 306
 		},
@@ -1074,14 +1074,14 @@
 		{
 			"ID": 154,
 			"Date": "2018-01-08 10:04:43",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 732,
 			"Order_ID": 515
 		},
 		{
 			"ID": 155,
 			"Date": "2019-04-09 01:29:56",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 565,
 			"Order_ID": 439
 		},
@@ -1102,7 +1102,7 @@
 		{
 			"ID": 158,
 			"Date": "2018-06-17 05:16:23",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 346,
 			"Order_ID": 799
 		},
@@ -1130,7 +1130,7 @@
 		{
 			"ID": 162,
 			"Date": "2018-12-13 20:33:29",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 637,
 			"Order_ID": 974
 		},
@@ -1151,7 +1151,7 @@
 		{
 			"ID": 165,
 			"Date": "2019-07-31 14:32:13",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 151,
 			"Order_ID": 164
 		},
@@ -1179,7 +1179,7 @@
 		{
 			"ID": 169,
 			"Date": "2018-01-18 04:44:47",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 550,
 			"Order_ID": 102
 		},
@@ -1270,7 +1270,7 @@
 		{
 			"ID": 182,
 			"Date": "2018-03-16 05:22:26",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 777,
 			"Order_ID": 610
 		},
@@ -1333,7 +1333,7 @@
 		{
 			"ID": 191,
 			"Date": "2018-09-09 22:11:02",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 990,
 			"Order_ID": 167
 		},
@@ -1354,7 +1354,7 @@
 		{
 			"ID": 194,
 			"Date": "2018-08-03 13:12:23",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 202,
 			"Order_ID": 820
 		},
@@ -1396,14 +1396,14 @@
 		{
 			"ID": 200,
 			"Date": "2017-11-24 13:35:47",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 659,
 			"Order_ID": 73
 		},
 		{
 			"ID": 201,
 			"Date": "2018-04-15 14:43:24",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 559,
 			"Order_ID": 850
 		},
@@ -1417,7 +1417,7 @@
 		{
 			"ID": 203,
 			"Date": "2017-12-18 03:20:40",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 39,
 			"Order_ID": 297
 		},
@@ -1452,7 +1452,7 @@
 		{
 			"ID": 208,
 			"Date": "2018-06-11 23:42:35",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 139,
 			"Order_ID": 44
 		},
@@ -1508,7 +1508,7 @@
 		{
 			"ID": 216,
 			"Date": "2018-05-03 22:19:09",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 386,
 			"Order_ID": 523
 		},
@@ -1557,7 +1557,7 @@
 		{
 			"ID": 223,
 			"Date": "2019-03-02 16:48:43",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 939,
 			"Order_ID": 14
 		},
@@ -1613,14 +1613,14 @@
 		{
 			"ID": 231,
 			"Date": "2019-06-17 12:39:41",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 636,
 			"Order_ID": 294
 		},
 		{
 			"ID": 232,
 			"Date": "2017-10-11 03:40:56",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 858,
 			"Order_ID": 297
 		},
@@ -1634,14 +1634,14 @@
 		{
 			"ID": 234,
 			"Date": "2019-08-06 06:53:44",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 71,
 			"Order_ID": 346
 		},
 		{
 			"ID": 235,
 			"Date": "2018-09-10 15:40:50",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 513,
 			"Order_ID": 741
 		},
@@ -1655,7 +1655,7 @@
 		{
 			"ID": 237,
 			"Date": "2019-01-10 17:40:28",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 107,
 			"Order_ID": 37
 		},
@@ -1718,7 +1718,7 @@
 		{
 			"ID": 246,
 			"Date": "2017-08-20 06:13:36",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 278,
 			"Order_ID": 528
 		},
@@ -1739,14 +1739,14 @@
 		{
 			"ID": 249,
 			"Date": "2018-06-03 21:03:13",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 442,
 			"Order_ID": 80
 		},
 		{
 			"ID": 250,
 			"Date": "2018-01-20 20:18:54",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 177,
 			"Order_ID": 119
 		},
@@ -1788,14 +1788,14 @@
 		{
 			"ID": 256,
 			"Date": "2019-06-23 20:16:50",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 651,
 			"Order_ID": 87
 		},
 		{
 			"ID": 257,
 			"Date": "2018-07-20 12:49:25",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 365,
 			"Order_ID": 987
 		},
@@ -1837,7 +1837,7 @@
 		{
 			"ID": 263,
 			"Date": "2019-06-02 14:53:05",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 368,
 			"Order_ID": 610
 		},
@@ -1872,7 +1872,7 @@
 		{
 			"ID": 268,
 			"Date": "2019-04-04 13:10:21",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 429,
 			"Order_ID": 155
 		},
@@ -1963,7 +1963,7 @@
 		{
 			"ID": 281,
 			"Date": "2017-11-20 12:46:10",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 504,
 			"Order_ID": 190
 		},
@@ -2019,28 +2019,28 @@
 		{
 			"ID": 289,
 			"Date": "2017-08-26 04:33:31",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 557,
 			"Order_ID": 428
 		},
 		{
 			"ID": 290,
 			"Date": "2018-10-28 15:04:20",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 59,
 			"Order_ID": 591
 		},
 		{
 			"ID": 291,
 			"Date": "2018-07-18 15:21:53",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 255,
 			"Order_ID": 281
 		},
 		{
 			"ID": 292,
 			"Date": "2019-01-02 09:13:22",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 630,
 			"Order_ID": 179
 		},
@@ -2082,7 +2082,7 @@
 		{
 			"ID": 298,
 			"Date": "2017-10-02 23:32:12",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 341,
 			"Order_ID": 807
 		},
@@ -2145,7 +2145,7 @@
 		{
 			"ID": 307,
 			"Date": "2017-11-12 15:37:49",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 66,
 			"Order_ID": 387
 		},
@@ -2285,14 +2285,14 @@
 		{
 			"ID": 327,
 			"Date": "2019-05-12 19:01:38",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 198,
 			"Order_ID": 587
 		},
 		{
 			"ID": 328,
 			"Date": "2018-04-05 17:37:17",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 935,
 			"Order_ID": 549
 		},
@@ -2348,7 +2348,7 @@
 		{
 			"ID": 336,
 			"Date": "2018-09-24 12:13:10",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 683,
 			"Order_ID": 374
 		},
@@ -2411,7 +2411,7 @@
 		{
 			"ID": 345,
 			"Date": "2017-11-04 22:11:05",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 604,
 			"Order_ID": 93
 		},
@@ -2446,14 +2446,14 @@
 		{
 			"ID": 350,
 			"Date": "2019-04-20 13:19:23",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 14,
 			"Order_ID": 213
 		},
 		{
 			"ID": 351,
 			"Date": "2018-05-27 10:25:05",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 879,
 			"Order_ID": 731
 		},
@@ -2537,7 +2537,7 @@
 		{
 			"ID": 363,
 			"Date": "2019-07-09 10:01:02",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 739,
 			"Order_ID": 630
 		},
@@ -2551,7 +2551,7 @@
 		{
 			"ID": 365,
 			"Date": "2017-11-09 18:58:26",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 899,
 			"Order_ID": 101
 		},
@@ -2649,7 +2649,7 @@
 		{
 			"ID": 379,
 			"Date": "2019-05-29 22:43:02",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 20,
 			"Order_ID": 834
 		},
@@ -2726,7 +2726,7 @@
 		{
 			"ID": 390,
 			"Date": "2017-10-02 17:38:29",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 546,
 			"Order_ID": 498
 		},
@@ -2740,7 +2740,7 @@
 		{
 			"ID": 392,
 			"Date": "2017-10-01 22:32:17",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 722,
 			"Order_ID": 931
 		},
@@ -2754,7 +2754,7 @@
 		{
 			"ID": 394,
 			"Date": "2019-01-13 02:23:00",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 743,
 			"Order_ID": 421
 		},
@@ -2817,7 +2817,7 @@
 		{
 			"ID": 403,
 			"Date": "2018-12-29 21:35:44",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 914,
 			"Order_ID": 946
 		},
@@ -2845,7 +2845,7 @@
 		{
 			"ID": 407,
 			"Date": "2017-12-10 16:57:51",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 111,
 			"Order_ID": 142
 		},
@@ -2866,7 +2866,7 @@
 		{
 			"ID": 410,
 			"Date": "2019-06-08 09:36:32",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 596,
 			"Order_ID": 15
 		},
@@ -2901,7 +2901,7 @@
 		{
 			"ID": 415,
 			"Date": "2017-12-26 06:58:47",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 249,
 			"Order_ID": 658
 		},
@@ -3083,7 +3083,7 @@
 		{
 			"ID": 441,
 			"Date": "2018-11-22 22:54:21",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 372,
 			"Order_ID": 945
 		},
@@ -3097,28 +3097,28 @@
 		{
 			"ID": 443,
 			"Date": "2019-06-23 14:23:22",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 234,
 			"Order_ID": 452
 		},
 		{
 			"ID": 444,
 			"Date": "2017-12-23 02:52:57",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 709,
 			"Order_ID": 711
 		},
 		{
 			"ID": 445,
 			"Date": "2017-08-13 16:16:31",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 823,
 			"Order_ID": 257
 		},
 		{
 			"ID": 446,
 			"Date": "2019-08-05 17:01:09",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 668,
 			"Order_ID": 893
 		},
@@ -3139,7 +3139,7 @@
 		{
 			"ID": 449,
 			"Date": "2019-05-20 16:41:09",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 549,
 			"Order_ID": 207
 		},
@@ -3153,7 +3153,7 @@
 		{
 			"ID": 451,
 			"Date": "2019-04-03 23:02:29",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 445,
 			"Order_ID": 12
 		},
@@ -3174,7 +3174,7 @@
 		{
 			"ID": 454,
 			"Date": "2019-01-03 10:02:59",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 346,
 			"Order_ID": 507
 		},
@@ -3314,7 +3314,7 @@
 		{
 			"ID": 474,
 			"Date": "2019-01-15 07:40:32",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 977,
 			"Order_ID": 205
 		},
@@ -3349,14 +3349,14 @@
 		{
 			"ID": 479,
 			"Date": "2018-06-12 19:30:53",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 963,
 			"Order_ID": 664
 		},
 		{
 			"ID": 480,
 			"Date": "2017-08-20 17:58:04",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 637,
 			"Order_ID": 185
 		},
@@ -3447,21 +3447,21 @@
 		{
 			"ID": 493,
 			"Date": "2018-04-30 15:14:32",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 628,
 			"Order_ID": 240
 		},
 		{
 			"ID": 494,
 			"Date": "2018-12-09 06:38:02",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 250,
 			"Order_ID": 212
 		},
 		{
 			"ID": 495,
 			"Date": "2018-12-03 08:24:49",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 198,
 			"Order_ID": 787
 		},
@@ -3496,14 +3496,14 @@
 		{
 			"ID": 500,
 			"Date": "2018-04-18 06:27:39",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 985,
 			"Order_ID": 654
 		},
 		{
 			"ID": 501,
 			"Date": "2017-08-31 16:53:28",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 280,
 			"Order_ID": 687
 		},
@@ -3559,7 +3559,7 @@
 		{
 			"ID": 509,
 			"Date": "2017-11-17 03:52:11",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 399,
 			"Order_ID": 387
 		},
@@ -3601,7 +3601,7 @@
 		{
 			"ID": 515,
 			"Date": "2017-11-19 02:43:41",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 546,
 			"Order_ID": 288
 		},
@@ -3671,7 +3671,7 @@
 		{
 			"ID": 525,
 			"Date": "2018-10-11 03:07:33",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 822,
 			"Order_ID": 21
 		},
@@ -3748,7 +3748,7 @@
 		{
 			"ID": 536,
 			"Date": "2019-07-05 07:06:05",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 69,
 			"Order_ID": 442
 		},
@@ -3762,7 +3762,7 @@
 		{
 			"ID": 538,
 			"Date": "2019-05-29 14:08:04",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 822,
 			"Order_ID": 666
 		},
@@ -3811,7 +3811,7 @@
 		{
 			"ID": 545,
 			"Date": "2018-07-22 12:28:16",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 167,
 			"Order_ID": 127
 		},
@@ -3895,7 +3895,7 @@
 		{
 			"ID": 557,
 			"Date": "2018-07-27 07:56:46",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 792,
 			"Order_ID": 870
 		},
@@ -3979,14 +3979,14 @@
 		{
 			"ID": 569,
 			"Date": "2017-10-03 07:52:53",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 651,
 			"Order_ID": 960
 		},
 		{
 			"ID": 570,
 			"Date": "2019-07-18 23:28:02",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 555,
 			"Order_ID": 996
 		},
@@ -4035,7 +4035,7 @@
 		{
 			"ID": 577,
 			"Date": "2019-04-14 10:35:38",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 407,
 			"Order_ID": 144
 		},
@@ -4063,7 +4063,7 @@
 		{
 			"ID": 581,
 			"Date": "2017-08-05 23:54:31",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 232,
 			"Order_ID": 44
 		},
@@ -4147,7 +4147,7 @@
 		{
 			"ID": 593,
 			"Date": "2018-05-12 19:22:32",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 413,
 			"Order_ID": 890
 		},
@@ -4252,7 +4252,7 @@
 		{
 			"ID": 608,
 			"Date": "2018-07-11 17:31:22",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 181,
 			"Order_ID": 165
 		},
@@ -4336,7 +4336,7 @@
 		{
 			"ID": 620,
 			"Date": "2019-01-30 00:49:24",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 346,
 			"Order_ID": 265
 		},
@@ -4357,14 +4357,14 @@
 		{
 			"ID": 623,
 			"Date": "2019-02-19 00:45:17",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 846,
 			"Order_ID": 101
 		},
 		{
 			"ID": 624,
 			"Date": "2019-03-06 10:53:05",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 118,
 			"Order_ID": 209
 		},
@@ -4560,7 +4560,7 @@
 		{
 			"ID": 652,
 			"Date": "2019-07-06 17:31:05",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 182,
 			"Order_ID": 407
 		},
@@ -4588,7 +4588,7 @@
 		{
 			"ID": 656,
 			"Date": "2019-01-16 17:37:29",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 715,
 			"Order_ID": 781
 		},
@@ -4602,14 +4602,14 @@
 		{
 			"ID": 658,
 			"Date": "2018-07-14 15:03:22",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 997,
 			"Order_ID": 307
 		},
 		{
 			"ID": 659,
 			"Date": "2018-04-06 15:54:07",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 952,
 			"Order_ID": 155
 		},
@@ -4637,7 +4637,7 @@
 		{
 			"ID": 663,
 			"Date": "2018-03-03 16:51:54",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 886,
 			"Order_ID": 980
 		},
@@ -4700,7 +4700,7 @@
 		{
 			"ID": 672,
 			"Date": "2018-08-08 20:01:36",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 392,
 			"Order_ID": 824
 		},
@@ -4770,7 +4770,7 @@
 		{
 			"ID": 682,
 			"Date": "2018-03-03 04:15:36",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 572,
 			"Order_ID": 125
 		},
@@ -4840,7 +4840,7 @@
 		{
 			"ID": 692,
 			"Date": "2019-05-17 03:51:42",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 739,
 			"Order_ID": 48
 		},
@@ -4861,7 +4861,7 @@
 		{
 			"ID": 695,
 			"Date": "2019-03-01 23:49:40",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 489,
 			"Order_ID": 967
 		},
@@ -4910,14 +4910,14 @@
 		{
 			"ID": 702,
 			"Date": "2017-09-01 08:47:36",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 239,
 			"Order_ID": 478
 		},
 		{
 			"ID": 703,
 			"Date": "2019-01-28 12:49:03",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 511,
 			"Order_ID": 130
 		},
@@ -4938,7 +4938,7 @@
 		{
 			"ID": 706,
 			"Date": "2017-10-09 17:05:30",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 386,
 			"Order_ID": 542
 		},
@@ -5043,7 +5043,7 @@
 		{
 			"ID": 721,
 			"Date": "2018-08-22 10:01:01",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 76,
 			"Order_ID": 68
 		},
@@ -5057,7 +5057,7 @@
 		{
 			"ID": 723,
 			"Date": "2018-03-14 18:09:52",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 58,
 			"Order_ID": 366
 		},
@@ -5071,7 +5071,7 @@
 		{
 			"ID": 725,
 			"Date": "2018-04-27 05:44:51",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 944,
 			"Order_ID": 281
 		},
@@ -5099,7 +5099,7 @@
 		{
 			"ID": 729,
 			"Date": "2018-03-10 04:47:36",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 348,
 			"Order_ID": 564
 		},
@@ -5113,7 +5113,7 @@
 		{
 			"ID": 731,
 			"Date": "2018-04-05 14:32:07",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 9,
 			"Order_ID": 619
 		},
@@ -5134,7 +5134,7 @@
 		{
 			"ID": 734,
 			"Date": "2017-08-29 23:16:35",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 322,
 			"Order_ID": 397
 		},
@@ -5148,7 +5148,7 @@
 		{
 			"ID": 736,
 			"Date": "2018-11-29 01:18:40",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 114,
 			"Order_ID": 531
 		},
@@ -5176,14 +5176,14 @@
 		{
 			"ID": 740,
 			"Date": "2019-06-14 12:47:37",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 922,
 			"Order_ID": 774
 		},
 		{
 			"ID": 741,
 			"Date": "2019-08-01 23:14:26",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 523,
 			"Order_ID": 463
 		},
@@ -5309,21 +5309,21 @@
 		{
 			"ID": 759,
 			"Date": "2018-09-19 18:06:49",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 837,
 			"Order_ID": 645
 		},
 		{
 			"ID": 760,
 			"Date": "2018-11-11 14:40:38",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 465,
 			"Order_ID": 212
 		},
 		{
 			"ID": 761,
 			"Date": "2019-03-15 05:17:25",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 984,
 			"Order_ID": 286
 		},
@@ -5358,7 +5358,7 @@
 		{
 			"ID": 766,
 			"Date": "2017-10-15 14:21:16",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 96,
 			"Order_ID": 303
 		},
@@ -5414,21 +5414,21 @@
 		{
 			"ID": 774,
 			"Date": "2018-03-31 16:20:56",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 454,
 			"Order_ID": 618
 		},
 		{
 			"ID": 775,
 			"Date": "2019-07-14 19:26:47",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 40,
 			"Order_ID": 297
 		},
 		{
 			"ID": 776,
 			"Date": "2019-02-03 03:09:02",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 599,
 			"Order_ID": 751
 		},
@@ -5456,14 +5456,14 @@
 		{
 			"ID": 780,
 			"Date": "2018-04-19 23:48:50",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 189,
 			"Order_ID": 445
 		},
 		{
 			"ID": 781,
 			"Date": "2018-06-07 22:31:40",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 551,
 			"Order_ID": 945
 		},
@@ -5477,7 +5477,7 @@
 		{
 			"ID": 783,
 			"Date": "2018-08-15 08:57:44",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 692,
 			"Order_ID": 839
 		},
@@ -5519,14 +5519,14 @@
 		{
 			"ID": 789,
 			"Date": "2018-08-27 16:57:34",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 782,
 			"Order_ID": 753
 		},
 		{
 			"ID": 790,
 			"Date": "2017-08-26 16:50:25",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 848,
 			"Order_ID": 629
 		},
@@ -5554,7 +5554,7 @@
 		{
 			"ID": 794,
 			"Date": "2017-11-13 07:28:50",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 264,
 			"Order_ID": 617
 		},
@@ -5666,7 +5666,7 @@
 		{
 			"ID": 810,
 			"Date": "2018-11-12 11:35:47",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 237,
 			"Order_ID": 952
 		},
@@ -5743,7 +5743,7 @@
 		{
 			"ID": 821,
 			"Date": "2019-03-14 15:26:01",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 273,
 			"Order_ID": 347
 		},
@@ -5834,7 +5834,7 @@
 		{
 			"ID": 834,
 			"Date": "2019-02-22 00:54:02",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 269,
 			"Order_ID": 472
 		},
@@ -5855,7 +5855,7 @@
 		{
 			"ID": 837,
 			"Date": "2019-07-02 17:31:23",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 527,
 			"Order_ID": 679
 		},
@@ -5883,7 +5883,7 @@
 		{
 			"ID": 841,
 			"Date": "2018-11-01 01:23:55",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 298,
 			"Order_ID": 726
 		},
@@ -5897,7 +5897,7 @@
 		{
 			"ID": 843,
 			"Date": "2018-04-06 14:11:42",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 946,
 			"Order_ID": 404
 		},
@@ -5911,7 +5911,7 @@
 		{
 			"ID": 845,
 			"Date": "2017-10-25 20:02:14",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 213,
 			"Order_ID": 794
 		},
@@ -5974,7 +5974,7 @@
 		{
 			"ID": 854,
 			"Date": "2018-06-23 21:37:03",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 532,
 			"Order_ID": 948
 		},
@@ -6009,7 +6009,7 @@
 		{
 			"ID": 859,
 			"Date": "2017-12-15 10:29:59",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 626,
 			"Order_ID": 51
 		},
@@ -6023,14 +6023,14 @@
 		{
 			"ID": 861,
 			"Date": "2017-08-22 14:31:36",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 809,
 			"Order_ID": 267
 		},
 		{
 			"ID": 862,
 			"Date": "2019-02-15 14:32:01",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 527,
 			"Order_ID": 347
 		},
@@ -6044,7 +6044,7 @@
 		{
 			"ID": 864,
 			"Date": "2018-07-03 07:52:17",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 865,
 			"Order_ID": 465
 		},
@@ -6079,7 +6079,7 @@
 		{
 			"ID": 869,
 			"Date": "2017-11-19 00:41:02",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 463,
 			"Order_ID": 233
 		},
@@ -6128,7 +6128,7 @@
 		{
 			"ID": 876,
 			"Date": "2019-03-06 08:06:06",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 442,
 			"Order_ID": 120
 		},
@@ -6156,7 +6156,7 @@
 		{
 			"ID": 880,
 			"Date": "2018-03-01 04:34:25",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 584,
 			"Order_ID": 185
 		},
@@ -6184,7 +6184,7 @@
 		{
 			"ID": 884,
 			"Date": "2019-03-25 23:38:02",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 969,
 			"Order_ID": 464
 		},
@@ -6198,7 +6198,7 @@
 		{
 			"ID": 886,
 			"Date": "2018-07-16 06:42:24",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 310,
 			"Order_ID": 349
 		},
@@ -6233,7 +6233,7 @@
 		{
 			"ID": 891,
 			"Date": "2018-08-06 08:32:19",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 447,
 			"Order_ID": 51
 		},
@@ -6254,7 +6254,7 @@
 		{
 			"ID": 894,
 			"Date": "2019-05-18 23:11:08",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 748,
 			"Order_ID": 186
 		},
@@ -6401,7 +6401,7 @@
 		{
 			"ID": 915,
 			"Date": "2017-11-01 09:08:36",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 363,
 			"Order_ID": 784
 		},
@@ -6471,7 +6471,7 @@
 		{
 			"ID": 925,
 			"Date": "2018-12-10 01:46:02",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 320,
 			"Order_ID": 313
 		},
@@ -6513,7 +6513,7 @@
 		{
 			"ID": 931,
 			"Date": "2017-09-01 04:45:44",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 112,
 			"Order_ID": 899
 		},
@@ -6534,14 +6534,14 @@
 		{
 			"ID": 934,
 			"Date": "2018-03-03 19:35:50",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 859,
 			"Order_ID": 706
 		},
 		{
 			"ID": 935,
 			"Date": "2019-03-22 19:31:28",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 498,
 			"Order_ID": 885
 		},
@@ -6562,7 +6562,7 @@
 		{
 			"ID": 938,
 			"Date": "2019-05-31 23:23:39",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 232,
 			"Order_ID": 542
 		},
@@ -6597,7 +6597,7 @@
 		{
 			"ID": 943,
 			"Date": "2017-10-21 00:12:27",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 216,
 			"Order_ID": 883
 		},
@@ -6632,7 +6632,7 @@
 		{
 			"ID": 948,
 			"Date": "2017-09-28 00:22:18",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 59,
 			"Order_ID": 657
 		},
@@ -6709,7 +6709,7 @@
 		{
 			"ID": 959,
 			"Date": "2019-04-25 21:13:01",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 953,
 			"Order_ID": 208
 		},
@@ -6723,7 +6723,7 @@
 		{
 			"ID": 961,
 			"Date": "2018-06-05 14:58:13",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 851,
 			"Order_ID": 147
 		},
@@ -6772,7 +6772,7 @@
 		{
 			"ID": 968,
 			"Date": "2018-08-15 03:24:04",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 250,
 			"Order_ID": 795
 		},
@@ -6793,7 +6793,7 @@
 		{
 			"ID": 971,
 			"Date": "2018-10-03 08:05:57",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 271,
 			"Order_ID": 410
 		},
@@ -6835,7 +6835,7 @@
 		{
 			"ID": 977,
 			"Date": "2018-02-12 08:39:37",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 726,
 			"Order_ID": 250
 		},
@@ -6863,7 +6863,7 @@
 		{
 			"ID": 981,
 			"Date": "2017-08-20 23:36:57",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 453,
 			"Order_ID": 177
 		},
@@ -6877,7 +6877,7 @@
 		{
 			"ID": 983,
 			"Date": "2017-10-04 14:00:08",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 836,
 			"Order_ID": 739
 		},
@@ -6891,7 +6891,7 @@
 		{
 			"ID": 985,
 			"Date": "2018-04-05 10:50:10",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 141,
 			"Order_ID": 955
 		},
@@ -6989,7 +6989,7 @@
 		{
 			"ID": 999,
 			"Date": "2019-03-13 18:06:29",
-			"Type": "Refunds",
+			"Type": "Pageviews",
 			"Level_ID": 496,
 			"Order_ID": 391
 		},
