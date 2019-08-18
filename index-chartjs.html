@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MemberIOO - Charts</title>
+    <link rel="stylesheet" href="./libs/jquery/jquery-ui.css">
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <link rel="stylesheet" href="./libs/chartJS/Chart.min.css"></script>
+
+    <style>
+      canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main bg-gray mx-auto">
+      <div class="time-filter flex mb-4">
+        <div class="time-filter-label flex items-center mr-4">
+          <div>Filter</div>
+        </div>
+        <div class="flex items-center mr-4">
+          <select class="time-filter-code form-control">
+            <option value="today" selected>Today</option>
+            <option value="yesterday">Yesterday</option>
+            <option value="thisweek">This week</option>
+            <option value="lastweek">Last week</option>
+            <option value="thismonth">This month</option>
+            <option value="lastmonth">Last month</option>
+            <option value="all">All Time</option>
+            <option value="custom">Custom Date</option>
+          </select>
+        </div>
+        <div class="time-filter-custom" style="display: none;">
+          <input type="text" class="datepicker form-control" name="from" />
+          <input type="text" class="datepicker form-control" name="to" />
+        </div>
+      </div>
+
+      <div class="bg-white rounded-md py-6 mx-4 my-6">
+        <div class="type-filter flex">
+          <div>
+            <select class="type-input form-control" data-type="1">
+              <option value="Visitor" selected>Visitor</option>
+              <option value="Pageviews">Pageviews</option>
+              <option value="Leads">Leads</option>
+              <option value="Sales">Sales</option>
+            </select>
+          </div>
+          <div class="flex items-center mx-4">
+            <div>vs</div>
+          </div>
+          <div>
+            <select class="type-input form-control" data-type="2">
+              <option value="Visitor">Visitor</option>
+              <option value="Pageviews" selected>Pageviews</option>
+              <option value="Leads">Leads</option>
+              <option value="Sales">Sales</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <!-- <canvas id="chart" class="chart"></canvas> -->
+          	<div style="width:75%;">
+              <canvas id="canvas"></canvas>
+            </div>
+            <br>
+            <br>
+            <button id="randomizeData">Randomize Data</button>
+            <button id="addDataset">Add Dataset</button>
+            <button id="removeDataset">Remove Dataset</button>
+            <button id="addData">Add Data</button>
+            <button id="removeData">Remove Data</button>
+        </div>
+      </div>
+      
+    </div>
+    <script src="./libs/jquery/jquery-1.12.4.js"></script>
+    <script src="./libs/jquery/jquery-ui.js"></script>
+    <script src="./libs/moment/moment.min.js"></script>
+    <!-- <script src="./libs/amcharts/core.js"></script> -->
+    <!-- <script src="./libs/amcharts/charts.js"></script> -->
+    <script src="./libs/chartJS/Chart.min.js"></script>
+    <script src="./src/js/config.js"></script>
+    <script src="./src/js/utils.js"></script>
+    <script>
+      $(document).ready(function() {
+        var timeFilter = {
+          code: "today",
+          from: moment().format("YYYY-MM-DD"),
+          to: moment().format("YYYY-MM-DD")
+        };
+        var typeFilter = {
+          type1: "Visitor",
+          type2: "Pageviews"
+        }
+        var chart = undefined;
+        var rawChartData = [];
+        var chartData = [];
+        var chartConfig = {
+          dateFormat: {
+            useInputDateFormat: true,
+            period: "hour",
+            format: "HH:mm",
+          },
+          series1: {
+            name: "Visitor",
+            stroke: TYPES_CONFIG["Visitor"].series.stroke,
+            fill: TYPES_CONFIG["Visitor"].series.fill
+          },
+          series2: {
+            name: "Pageviews",
+            stroke: TYPES_CONFIG["Pageviews"].series.stroke,
+            fill: TYPES_CONFIG["Pageviews"].series.fill
+          }
+        };
+        var am4coreIsReady = false;
+
+        $(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+
+        $(".time-filter-code").change(function() {
+          timeFilter.code = $(this).val();
+          switch (timeFilter.code) {
+            case "today":
+              // Hide custom time filter block
+              $(".time-filter-custom").css('display', 'none');
+              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.to = moment().format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = true;
+              chartConfig.dateFormat.period = "hour";
+              chartConfig.dateFormat.format = "HH:mm";
+              break;
+            case "yesterday":
+              // Hide custom time filter block
+              $(".time-filter-custom").css('display', 'none');
+              timeFilter.from = moment().subtract(1, 'days').format("YYYY-MM-DD");
+              timeFilter.to = moment().subtract(1, 'days').format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = true;
+              chartConfig.dateFormat.period = "hour";
+              chartConfig.dateFormat.format = "HH:mm";
+              break;
+            case "thisweek":
+              // Hide custom time filter block
+              $(".time-filter-custom").css('display', 'none');
+              timeFilter.from = moment().startOf('week').format("YYYY-MM-DD");
+              timeFilter.to = moment().endOf('week').format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = false;
+              chartConfig.dateFormat.period = "day";
+              chartConfig.dateFormat.format = "EEE";
+              break;
+            case "lastweek":
+              // Hide custom time filter block
+              $(".time-filter-custom").css('display', 'none');
+              timeFilter.from = moment().subtract(1, 'weeks').startOf('week').format("YYYY-MM-DD");
+              timeFilter.to = moment().subtract(1, 'weeks').endOf('week').format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = false;
+              chartConfig.dateFormat.period = "day";
+              chartConfig.dateFormat.format = "EEE";
+              break;
+            case "thismonth":
+              // Hide custom time filter block
+              $(".time-filter-custom").css('display', 'none');
+              timeFilter.from = moment().startOf('month').format("YYYY-MM-DD");
+              timeFilter.to = moment().endOf('month').format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = false;
+              chartConfig.dateFormat.period = "";
+              chartConfig.dateFormat.format = "";
+              break;
+            case "lastmonth":
+              // Hide custom time filter block
+              $(".time-filter-custom").css('display', 'none');
+              timeFilter.from = moment().subtract(1, 'month').startOf('month').format("YYYY-MM-DD");
+              timeFilter.to = moment().subtract(1, 'month').endOf('month').format("YYYY-MM-DD");
+              chartConfig.dateFormat.useInputDateFormat = false;
+              chartConfig.dateFormat.period = "";
+              chartConfig.dateFormat.format = "";
+              break;
+            case "all":
+              // Hide custom time filter block
+              $(".time-filter-custom").css('display', 'none');
+              chartConfig.dateFormat.useInputDateFormat = false;
+              chartConfig.dateFormat.period = "month";
+              chartConfig.dateFormat.format = "MMM yyyy";
+              break;
+            case "custom":
+              // Show time-filter-custom
+              $(".time-filter-custom").css('display', 'flex');
+              chartConfig.dateFormat.useInputDateFormat = false;
+              chartConfig.dateFormat.period = "month";
+              chartConfig.dateFormat.format = "MMM yyyy";
+              break;
+            default:
+              timeFilter.from = moment().format("YYYY-MM-DD");
+              timeFilter.to = moment().format("YYYY-MM-DD");
+              break;
+          }
+
+          // Redraw chart
+          chartData = prepareData(rawChartData, typeFilter, timeFilter);
+          drawChart(chartConfig);
+        });
+
+        $(".time-filter-custom input[name=from]").change(function() {
+          timeFilter.from = $(this).val();
+
+          // Redraw chart
+          chartData = prepareData(rawChartData, typeFilter, timeFilter);
+          drawChart(chartConfig);
+        });
+
+        $(".time-filter-custom input[name=to]").change(function() {
+          timeFilter.to = $(this).val();
+          // Redraw chart
+          chartData = prepareData(rawChartData, typeFilter, timeFilter);
+          drawChart(chartConfig);
+        });
+        
+        $(".type-input").change(function() {
+          const typeIndex = Number($(this).data("type"));
+          if (!isNaN(typeIndex)) {
+            typeFilter[`type${typeIndex}`] = $(this).val();
+            // Update chart config
+            chartConfig[`series${typeIndex}`].name = $(this).val();
+            chartConfig[`series${typeIndex}`] = Object.assign(
+              {},
+              chartConfig[`series${typeIndex}`],
+              TYPES_CONFIG[$(this).val()].series
+            );
+          }
+
+          // Redraw chart
+          chartData = prepareData(rawChartData, typeFilter, timeFilter);
+          drawChart(chartConfig);
+        })
+
+        // Re-draw chart when window resize 
+        $( window ).resize(function() {
+          // Redraw chart
+          drawChart(chartConfig);
+        });
+
+        function prepareData(data, typeFilter, timeFilter) {
+          console.log("DEBUG prepareData", typeFilter, timeFilter);
+          let filteredData = filterData(data, typeFilter, timeFilter);
+          console.log("DEBUG filterData");
+          console.log(filteredData);
+          // sum data
+          let arrangedData = arrangeData(filteredData, typeFilter, timeFilter);
+          console.log("DEBUG arrangeData");
+          console.log(arrangedData);
+          //
+          return arrangedData;
+        }
+
+        function filterData(data, typeFilter, timeFilter) {
+          if (timeFilter.code === 'all') {
+            return data.filter(row => {
+              return (
+                String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()
+                || String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase()
+              ); 
+            });
+          }
+          return data.filter(row => {
+            return (
+              String(row.Type).toUpperCase() === String(typeFilter.type1).toUpperCase()
+              || String(row.Type).toUpperCase() === String(typeFilter.type2).toUpperCase()
+            ) && (
+              moment(timeFilter.from, "YYYY-MM-DD") <= moment(row.Date, "YYYY-MM-DD") 
+              && moment(row.Date, "YYYY-MM-DD") <= moment(timeFilter.to, "YYYY-MM-DD")
+            ); 
+          });
+        }
+
+        function arrangeData(data, typeFilter, timeFilter) {
+          switch (timeFilter.code) {
+            case "today":
+              return arrangeDataForToday(data, typeFilter, timeFilter);
+            case "yesterday":
+              return arrangeDataForYesterday(data, typeFilter, timeFilter);
+            case "thisweek":
+              return arrangeDataForThisWeek(data, typeFilter, timeFilter);
+            case "lastweek":
+              return arrangeDataForLastWeek(data, typeFilter, timeFilter);
+            case "thismonth":
+              return arrangeDataForThisMonth(data, typeFilter, timeFilter);
+            case "lastmonth":
+              return arrangeDataForLastMonth(data, typeFilter, timeFilter);
+            case "all":
+              return arrangeDataForAllTime(data, typeFilter, timeFilter);
+            case "custom":
+              return arrangeDataForCustomTime(data, typeFilter, timeFilter);
+            default:
+              break;
+          }
+          return [];
+        }
+
+        function drawChart(config) {
+          const labels = chartData.map(item => item.time)
+          const series1 = chartData.map(item => item.v1)
+          const series2 = chartData.map(item => item.v2)
+          var localConfig = {
+            type: 'line',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: 'My First dataset',
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgb(255, 99, 132)',
+                data: series1
+              }, {
+                label: 'My Second dataset',
+                borderColor: 'rgb(54, 162, 235)',
+                backgroundColor: 'rgb(54, 162, 235)',
+                data: series2
+              }]
+            },
+            options: {
+              responsive: true,
+              title: {
+                display: true,
+                text: 'Chart.js Line Chart - Stacked Area'
+              },
+              tooltips: {
+                mode: 'index',
+              },
+              hover: {
+                mode: 'index'
+              },
+              scales: {
+                xAxes: [{
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Month'
+                  }
+                }],
+                yAxes: [{
+                  stacked: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Value'
+                  }
+                }]
+              }
+            }
+          };
+
+          var ctx = document.getElementById('canvas').getContext('2d');
+          window.myLine = new Chart(ctx, localConfig);
+
+        }
+
+        function loadData() {
+          $.ajax({ 
+            type: 'GET', 
+            url: 'https://tinhuynh0992.github.io/memberioo-chart/data/data.json', 
+            dataType: 'json',
+            success: function(response) { 
+              rawChartData = response.data;
+              chartData = prepareData(rawChartData, typeFilter, timeFilter);
+              drawChart(chartConfig);
+            }
+          });
+        }
+       
+        loadData();
+        drawChart(chartConfig);
+      });
+    </script>
+
+    <!-- <script>
+      window.chartColors = {
+        red: 'rgb(255, 99, 132)',
+        orange: 'rgb(255, 159, 64)',
+        yellow: 'rgb(255, 205, 86)',
+        green: 'rgb(75, 192, 192)',
+        blue: 'rgb(54, 162, 235)',
+        purple: 'rgb(153, 102, 255)',
+        grey: 'rgb(201, 203, 207)'
+      };
+      var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      var config = {
+        type: 'line',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          datasets: [{
+            label: 'My First dataset',
+            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgb(255, 99, 132)',
+            data: [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+          }, {
+            label: 'My Second dataset',
+            borderColor: 'rgb(54, 162, 235)',
+            backgroundColor: 'rgb(54, 162, 235)',
+            data: [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+          }]
+        },
+        options: {
+          responsive: true,
+          title: {
+            display: true,
+            text: 'Chart.js Line Chart - Stacked Area'
+          },
+          tooltips: {
+            mode: 'index',
+          },
+          hover: {
+            mode: 'index'
+          },
+          scales: {
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Month'
+              }
+            }],
+            yAxes: [{
+              stacked: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Value'
+              }
+            }]
+          }
+        }
+      };
+
+      window.onload = function() {
+        var ctx = document.getElementById('canvas').getContext('2d');
+        window.myLine = new Chart(ctx, config);
+      };
+
+      document.getElementById('randomizeData').addEventListener('click', function() {
+        config.data.datasets.forEach(function(dataset) {
+          dataset.data = dataset.data.map(function() {
+            return 1;
+          });
+
+        });
+
+        window.myLine.update();
+      });
+
+      var colorNames = Object.keys(window.chartColors);
+      document.getElementById('addDataset').addEventListener('click', function() {
+        var colorName = colorNames[config.data.datasets.length % colorNames.length];
+        var newColor = window.chartColors[colorName];
+        var newDataset = {
+          label: 'Dataset ' + config.data.datasets.length,
+          borderColor: newColor,
+          backgroundColor: newColor,
+          data: [],
+        };
+
+        for (var index = 0; index < config.data.labels.length; ++index) {
+          newDataset.data.push(1);
+        }
+
+        config.data.datasets.push(newDataset);
+        window.myLine.update();
+      });
+
+      document.getElementById('addData').addEventListener('click', function() {
+        if (config.data.datasets.length > 0) {
+          var month = MONTHS[config.data.labels.length % MONTHS.length];
+          config.data.labels.push(month);
+
+          config.data.datasets.forEach(function(dataset) {
+            dataset.data.push(1);
+          });
+
+          window.myLine.update();
+        }
+      });
+
+      document.getElementById('removeDataset').addEventListener('click', function() {
+        config.data.datasets.splice(0, 1);
+        window.myLine.update();
+      });
+
+      document.getElementById('removeData').addEventListener('click', function() {
+        config.data.labels.splice(-1, 1); // remove the label first
+
+        config.data.datasets.forEach(function(dataset) {
+          dataset.data.pop();
+        });
+
+        window.myLine.update();
+      });
+    </script> -->
+  </body>
+</html>
