@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MemberIOO - Charts</title>
+    <link rel="stylesheet" href="./libs/jquery/jquery-ui.css">
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <link rel="stylesheet" href="./libs/chartJS/Chart.min.css"></script>
+
+    <style>
+      canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main bg-gray p-4 mx-auto">
+      <div class="bg-white rounded-md">
+        <div>
+          <canvas id="canvas"></canvas>
+        </div>
+      </div>
+      
+    </div>
+    <script src="./libs/jquery/jquery-1.12.4.js"></script>
+    <script src="./libs/jquery/jquery-ui.js"></script>
+    <script src="./libs/moment/moment.min.js"></script>
+    <!-- <script src="./libs/amcharts/core.js"></script>
+    <script src="./libs/amcharts/charts.js"></script> -->
+    <script src="./libs/chartJS/Chart.min.js"></script>
+    <script src="./src/js/config.js"></script>
+    <script src="./src/js/utils.js"></script>
+    <script>
+      $(document).ready(function() {
+        var typeFilter = {}
+        var chart = undefined;
+        var rawChartData = [];
+        var chartData = [{
+          time: "2018-01",
+          goal: 800,
+          achievement: 678,
+          bullet: ""
+        }, {
+          time: "2018-02",
+          goal: 1200,
+          achievement: 999,
+          bullet: ""
+        }, {
+          time: "2018-03",
+          goal: 2000,
+          achievement: 1700,
+          bullet: ""
+        }, {
+          time: "2018-04",
+          goal: 5000,
+          achievement: 4560,
+          bullet: ""
+        }, {
+          time: "2018-05",
+          goal: 20000,
+          achievement: 15900,
+          bullet: ""
+        }, {
+          time: "2018-06",
+          goal: 25000,
+          achievement: 22000,
+          bullet: ""
+        }, {
+          time: "2018-07",
+          goal: 100000,
+          achievement: 87000,
+          bullet: ""
+        }, {
+          time: "2018-08",
+          goal: 100000,
+          achievement: 87000,
+          bullet: ""
+        }, {
+          time: "2018-09",
+          goal: 100000,
+          achievement: 87000,
+          bullet: "http://localhost:5000/src/images/star.svg"
+        }, {
+          time: "2018-10",
+          goal: 100000,
+          achievement: 87000,
+          bullet: ""
+        }];
+        var chartConfig = {
+          dateFormat: {
+            useInputDateFormat: true,
+            period: "hour",
+            format: "HH:mm",
+          },
+          series1: {
+            name: "Visitor",
+            stroke: TYPES_CONFIG["Visitor"].series.stroke,
+            fill: TYPES_CONFIG["Visitor"].series.fill
+          },
+          series2: {
+            name: "Pageviews",
+            stroke: TYPES_CONFIG["Pageviews"].series.stroke,
+            fill: TYPES_CONFIG["Pageviews"].series.fill
+          }
+        };
+        var am4coreIsReady = false;
+
+        function drawChart(config) {
+          const labels = chartData.map(item => item.time)
+          const goals = chartData.map(item => item.goal)
+          const achievements = chartData.map(item => item.achievement)
+          var localConfig = {
+            labels: labels,
+            datasets: [{
+              label: 'Achievement',
+              backgroundColor: config.series1.stroke,
+              data: achievements
+            }, {
+              label: 'Goal',
+              backgroundColor: config.series2.stroke,
+              data: goals
+            }]
+
+          };
+          window.onload = function() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            window.myBar = new Chart(ctx, {
+              type: 'bar',
+              data: localConfig,
+              options: {
+                title: {
+                  display: true,
+                  text: 'Chart.js Bar Chart - Stacked'
+                },
+                tooltips: {
+                  mode: 'index',
+                  intersect: false
+                },
+                responsive: true,
+                scales: {
+                  xAxes: [{
+                    stacked: true,
+                  }],
+                  yAxes: [{
+                    stacked: true
+                  }]
+                }
+              }
+            });
+          };
+        }
+
+        drawChart(chartConfig);
+      });
+    </script>
+  </body>
+</html>
