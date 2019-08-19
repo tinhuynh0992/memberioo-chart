@@ -1,14 +1,14 @@
 const TYPES_CONFIG = {
   "Visitor": {
     series: {
-      stroke: "#1abc9c",
-      fill: "#1abc9c"
+      stroke: "rgba(75, 192, 192, 0.5)",
+      fill: "rgba(75, 192, 192, 0.5)"
     }
   },
   "Pageviews": {
     series: {
-      stroke: "#2ecc71",
-      fill: "#2ecc71"
+      stroke: "rgba(54, 162, 235, 0.5)",
+      fill: "rgba(54, 162, 235, 0.5)"
     }
   },
   "Leads": {
