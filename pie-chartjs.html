@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MemberIOO - Charts</title>
+    <link rel="stylesheet" href="./libs/jquery/jquery-ui.css">
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <link rel="stylesheet" href="./libs/chartJS/Chart.min.css" />
+
+    <style>
+      canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main bg-gray p-4 mx-auto">
+      <div class="bg-white rounded-md">
+        <div class="type-filter flex">
+          <div>
+            <select class="type-input form-control" data-type="2">
+              <option value="">Product: All Products</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <canvas id="canvas"></canvas>
+        </div>
+      </div>
+      
+    </div>
+    <script src="./libs/jquery/jquery-1.12.4.js"></script>
+    <script src="./libs/jquery/jquery-ui.js"></script>
+    <script src="./libs/moment/moment.min.js"></script>
+    <!-- <script src="./libs/amcharts/core.js"></script>
+    <script src="./libs/amcharts/charts.js"></script> -->
+    <script src="./libs/chartJS/Chart.min.js"></script>
+    <script src="./src/js/config.js"></script>
+    <script src="./src/js/utils.js"></script>
+    <script>
+      $(document).ready(function() {
+        var typeFilter = {}
+        var chart = undefined;
+        var rawChartData = [];
+        var chartData = [
+          {
+            "label": "Gross Revenue",
+            "percent": 19.1
+          }, {
+            "label": "Net Revenue",
+            "percent": 34.5
+          }, {
+            "label": "Refund Amount",
+            "percent": 46.4
+          }
+        ];
+        var chartConfig = {
+          dateFormat: {
+            useInputDateFormat: true,
+            period: "hour",
+            format: "HH:mm",
+          },
+          series1: {
+            name: "Visitor",
+            stroke: TYPES_CONFIG["Visitor"].series.stroke,
+            fill: TYPES_CONFIG["Visitor"].series.fill
+          },
+          series2: {
+            name: "Pageviews",
+            stroke: TYPES_CONFIG["Pageviews"].series.stroke,
+            fill: TYPES_CONFIG["Pageviews"].series.fill
+          }
+        };
+
+        function drawChart(config) {
+          const labels = chartData.map(item => item.label)
+          const percentages = chartData.map(item => item.percent)
+
+          var config = {
+            type: 'pie',
+            data: {
+              datasets: [{
+                data: percentages,
+                backgroundColor: [
+                  'rgba(75, 192, 192, 0.5)',
+                  'rgba(54, 162, 235, 0.5)',
+                  'rgba(255, 205, 86, 0.5)',
+                ],
+                label: 'Dataset 1'
+              }],
+              labels: labels
+            },
+            options: {
+              responsive: true
+            }
+          };
+
+          var ctx = document.getElementById('canvas').getContext('2d');
+          window.myPie = new Chart(ctx, config);
+        }
+
+        drawChart(chartConfig);
+      });
+    </script>
+  </body>
+</html>
