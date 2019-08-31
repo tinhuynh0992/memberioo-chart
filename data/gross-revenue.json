@@ -1,1 +1,499 @@
-{"total":"2831.50","data":{"2019-06-12":{"total":"44.24","product":{"19":{"title":"Product Name 37","amount":44.24}}},"2018-10-11":{"total":"134.50","product":{"14":{"title":"Product Name 22","amount":44.24},"66":{"title":"Product Name 67","amount":90.26}}},"2019-04-09":{"total":"83.24","product":{"14":{"title":"Product Name 22","amount":44.24},"44":{"title":"Product Name 38","amount":39}}},"2019-04-29":{"total":"44.84","product":{"42":{"title":"Product Name 46","amount":44.84}}},"2019-07-13":{"total":"115.96","product":{"96":{"title":"Product Name 85","amount":42.38},"41":{"title":"Product Name 84","amount":41.34},"12":{"title":"Product Name 36","amount":32.24}}},"2019-02-27":{"total":"90.47","product":{"67":{"title":"Product Name 11","amount":45.25},"87":{"title":"Product Name 79","amount":45.22}}},"2018-09-01":{"total":"88.08","product":{"45":{"title":"Product Name 33","amount":48.6},"39":{"title":"Product Name 77","amount":39.48}}},"2019-08-21":{"total":"130.82","product":{"87":{"title":"Product Name 79","amount":45.22},"4":{"title":"Product Name 00","amount":42.76},"28":{"title":"Product Name 34","amount":42.84}}},"2019-01-19":{"total":"90.62","product":{"29":{"title":"Product Name 74","amount":45.7},"71":{"title":"Product Name 90","amount":44.92}}},"2018-11-20":{"total":"42.11","product":{"1":{"title":"Product Name 80","amount":42.11}}},"2019-05-12":{"total":"48.60","product":{"45":{"title":"Product Name 33","amount":48.6}}},"2018-11-23":{"total":"87.63","product":{"45":{"title":"Product Name 33","amount":48.6},"35":{"title":"Product Name 12","amount":39.03}}},"2019-05-20":{"total":"84.03","product":{"29":{"title":"Product Name 74","amount":45.7},"68":{"title":"Product Name 28","amount":38.33}}},"2019-07-16":{"total":"45.22","product":{"19":{"title":"Product Name 37","amount":45.22}}},"2019-04-08":{"total":"87.69","product":{"22":{"title":"Product Name 88","amount":45.64},"49":{"title":"Product Name 40","amount":42.05}}},"2019-02-28":{"total":"83.87","product":{"36":{"title":"Product Name 56","amount":38.44},"33":{"title":"Product Name 03","amount":45.43}}},"2018-12-22":{"total":"84.70","product":{"39":{"title":"Product Name 77","amount":39.48},"87":{"title":"Product Name 79","amount":45.22}}},"2019-05-16":{"total":"41.74","product":{"26":{"title":"Product Name 54","amount":41.74}}},"2019-05-30":{"total":"83.85","product":{"26":{"title":"Product Name 54","amount":41.74},"1":{"title":"Product Name 80","amount":42.11}}},"2018-12-19":{"total":"45.13","product":{"66":{"title":"Product Name 67","amount":45.13}}},"2019-05-17":{"total":"44.92","product":{"71":{"title":"Product Name 90","amount":44.92}}},"2018-09-05":{"total":"41.77","product":{"88":{"title":"Product Name 92","amount":41.77}}},"2018-11-04":{"total":"42.64","product":{"86":{"title":"Product Name 30","amount":42.64}}},"2018-09-04":{"total":"50.84","product":{"11":{"title":"Product Name 75","amount":50.84}}},"2019-02-15":{"total":"41.34","product":{"41":{"title":"Product Name 84","amount":41.34}}},"2018-12-17":{"total":"37.37","product":{"62":{"title":"Product Name 72","amount":37.37}}},"2019-02-09":{"total":"39.03","product":{"35":{"title":"Product Name 12","amount":39.03}}},"2019-08-22":{"total":"130.34","product":{"39":{"title":"Product Name 77","amount":39.48},"22":{"title":"Product Name 88","amount":45.64},"5":{"title":"Product Name 60","amount":45.22}}},"2019-07-31":{"total":"39.48","product":{"39":{"title":"Product Name 77","amount":39.48}}},"2019-07-19":{"total":"40.39","product":{"48":{"title":"Product Name 63","amount":40.39}}},"2019-04-30":{"total":"45.64","product":{"22":{"title":"Product Name 88","amount":45.64}}},"2019-03-31":{"total":"32.36","product":{"6":{"title":"Product Name 23","amount":32.36}}},"2019-02-17":{"total":"50.84","product":{"11":{"title":"Product Name 75","amount":50.84}}},"2018-09-15":{"total":"35.40","product":{"9":{"title":"Product Name 61","amount":35.4}}},"2019-07-12":{"total":"40.39","product":{"81":{"title":"Product Name 17","amount":40.39}}},"2019-07-20":{"total":"32.24","product":{"12":{"title":"Product Name 36","amount":32.24}}},"2018-10-14":{"total":"39.00","product":{"44":{"title":"Product Name 38","amount":39}}},"2019-06-06":{"total":"83.15","product":{"4":{"title":"Product Name 00","amount":42.76},"48":{"title":"Product Name 63","amount":40.39}}},"2018-09-14":{"total":"84.43","product":{"44":{"title":"Product Name 38","amount":39},"33":{"title":"Product Name 03","amount":45.43}}},"2018-12-02":{"total":"35.40","product":{"9":{"title":"Product Name 61","amount":35.4}}},"2018-12-01":{"total":"42.11","product":{"1":{"title":"Product Name 80","amount":42.11}}},"2019-04-04":{"total":"39.03","product":{"35":{"title":"Product Name 12","amount":39.03}}},"2018-09-02":{"total":"36.63","product":{"18":{"title":"Product Name 82","amount":36.63}}},"2018-11-26":{"total":"42.76","product":{"4":{"title":"Product Name 00","amount":42.76}}},"2019-06-18":{"total":"84.02","product":{"43":{"title":"Product Name 29","amount":45.58},"36":{"title":"Product Name 56","amount":38.44}}},"2019-02-14":{"total":"42.64","product":{"86":{"title":"Product Name 30","amount":42.64}}}}}
+{
+  "total": "2831.50",
+  "data": {
+    "2019-06-12": {
+      "total": "44.24",
+      "product": {
+        "19": {
+          "title": "Product Name 37",
+          "amount": 44.24
+        }
+      }
+    },
+    "2018-10-11": {
+      "total": "134.50",
+      "product": {
+        "14": {
+          "title": "Product Name 22",
+          "amount": 44.24
+        },
+        "66": {
+          "title": "Product Name 67",
+          "amount": 90.26
+        }
+      }
+    },
+    "2019-04-09": {
+      "total": "83.24",
+      "product": {
+        "14": {
+          "title": "Product Name 22",
+          "amount": 44.24
+        },
+        "44": {
+          "title": "Product Name 38",
+          "amount": 39
+        }
+      }
+    },
+    "2019-04-29": {
+      "total": "44.84",
+      "product": {
+        "42": {
+          "title": "Product Name 46",
+          "amount": 44.84
+        }
+      }
+    },
+    "2019-07-13": {
+      "total": "115.96",
+      "product": {
+        "96": {
+          "title": "Product Name 85",
+          "amount": 42.38
+        },
+        "41": {
+          "title": "Product Name 84",
+          "amount": 41.34
+        },
+        "12": {
+          "title": "Product Name 36",
+          "amount": 32.24
+        }
+      }
+    },
+    "2019-02-27": {
+      "total": "90.47",
+      "product": {
+        "67": {
+          "title": "Product Name 11",
+          "amount": 45.25
+        },
+        "87": {
+          "title": "Product Name 79",
+          "amount": 45.22
+        }
+      }
+    },
+    "2018-09-01": {
+      "total": "88.08",
+      "product": {
+        "45": {
+          "title": "Product Name 33",
+          "amount": 48.6
+        },
+        "39": {
+          "title": "Product Name 77",
+          "amount": 39.48
+        }
+      }
+    },
+    "2019-08-21": {
+      "total": "130.82",
+      "product": {
+        "87": {
+          "title": "Product Name 79",
+          "amount": 45.22
+        },
+        "4": {
+          "title": "Product Name 00",
+          "amount": 42.76
+        },
+        "28": {
+          "title": "Product Name 34",
+          "amount": 42.84
+        }
+      }
+    },
+    "2019-01-19": {
+      "total": "90.62",
+      "product": {
+        "29": {
+          "title": "Product Name 74",
+          "amount": 45.7
+        },
+        "71": {
+          "title": "Product Name 90",
+          "amount": 44.92
+        }
+      }
+    },
+    "2018-11-20": {
+      "total": "42.11",
+      "product": {
+        "1": {
+          "title": "Product Name 80",
+          "amount": 42.11
+        }
+      }
+    },
+    "2019-05-12": {
+      "total": "48.60",
+      "product": {
+        "45": {
+          "title": "Product Name 33",
+          "amount": 48.6
+        }
+      }
+    },
+    "2018-11-23": {
+      "total": "87.63",
+      "product": {
+        "45": {
+          "title": "Product Name 33",
+          "amount": 48.6
+        },
+        "35": {
+          "title": "Product Name 12",
+          "amount": 39.03
+        }
+      }
+    },
+    "2019-05-20": {
+      "total": "84.03",
+      "product": {
+        "29": {
+          "title": "Product Name 74",
+          "amount": 45.7
+        },
+        "68": {
+          "title": "Product Name 28",
+          "amount": 38.33
+        }
+      }
+    },
+    "2019-07-16": {
+      "total": "45.22",
+      "product": {
+        "19": {
+          "title": "Product Name 37",
+          "amount": 45.22
+        }
+      }
+    },
+    "2019-04-08": {
+      "total": "87.69",
+      "product": {
+        "22": {
+          "title": "Product Name 88",
+          "amount": 45.64
+        },
+        "49": {
+          "title": "Product Name 40",
+          "amount": 42.05
+        }
+      }
+    },
+    "2019-02-28": {
+      "total": "83.87",
+      "product": {
+        "36": {
+          "title": "Product Name 56",
+          "amount": 38.44
+        },
+        "33": {
+          "title": "Product Name 03",
+          "amount": 45.43
+        }
+      }
+    },
+    "2018-12-22": {
+      "total": "84.70",
+      "product": {
+        "39": {
+          "title": "Product Name 77",
+          "amount": 39.48
+        },
+        "87": {
+          "title": "Product Name 79",
+          "amount": 45.22
+        }
+      }
+    },
+    "2019-05-16": {
+      "total": "41.74",
+      "product": {
+        "26": {
+          "title": "Product Name 54",
+          "amount": 41.74
+        }
+      }
+    },
+    "2019-05-30": {
+      "total": "83.85",
+      "product": {
+        "26": {
+          "title": "Product Name 54",
+          "amount": 41.74
+        },
+        "1": {
+          "title": "Product Name 80",
+          "amount": 42.11
+        }
+      }
+    },
+    "2018-12-19": {
+      "total": "45.13",
+      "product": {
+        "66": {
+          "title": "Product Name 67",
+          "amount": 45.13
+        }
+      }
+    },
+    "2019-05-17": {
+      "total": "44.92",
+      "product": {
+        "71": {
+          "title": "Product Name 90",
+          "amount": 44.92
+        }
+      }
+    },
+    "2018-09-05": {
+      "total": "41.77",
+      "product": {
+        "88": {
+          "title": "Product Name 92",
+          "amount": 41.77
+        }
+      }
+    },
+    "2018-11-04": {
+      "total": "42.64",
+      "product": {
+        "86": {
+          "title": "Product Name 30",
+          "amount": 42.64
+        }
+      }
+    },
+    "2018-09-04": {
+      "total": "50.84",
+      "product": {
+        "11": {
+          "title": "Product Name 75",
+          "amount": 50.84
+        }
+      }
+    },
+    "2019-02-15": {
+      "total": "41.34",
+      "product": {
+        "41": {
+          "title": "Product Name 84",
+          "amount": 41.34
+        }
+      }
+    },
+    "2018-12-17": {
+      "total": "37.37",
+      "product": {
+        "62": {
+          "title": "Product Name 72",
+          "amount": 37.37
+        }
+      }
+    },
+    "2019-02-09": {
+      "total": "39.03",
+      "product": {
+        "35": {
+          "title": "Product Name 12",
+          "amount": 39.03
+        }
+      }
+    },
+    "2019-08-22": {
+      "total": "130.34",
+      "product": {
+        "39": {
+          "title": "Product Name 77",
+          "amount": 39.48
+        },
+        "22": {
+          "title": "Product Name 88",
+          "amount": 45.64
+        },
+        "5": {
+          "title": "Product Name 60",
+          "amount": 45.22
+        }
+      }
+    },
+    "2019-07-31": {
+      "total": "39.48",
+      "product": {
+        "39": {
+          "title": "Product Name 77",
+          "amount": 39.48
+        }
+      }
+    },
+    "2019-07-19": {
+      "total": "40.39",
+      "product": {
+        "48": {
+          "title": "Product Name 63",
+          "amount": 40.39
+        }
+      }
+    },
+    "2019-04-30": {
+      "total": "45.64",
+      "product": {
+        "22": {
+          "title": "Product Name 88",
+          "amount": 45.64
+        }
+      }
+    },
+    "2019-03-31": {
+      "total": "32.36",
+      "product": {
+        "6": {
+          "title": "Product Name 23",
+          "amount": 32.36
+        }
+      }
+    },
+    "2019-02-17": {
+      "total": "50.84",
+      "product": {
+        "11": {
+          "title": "Product Name 75",
+          "amount": 50.84
+        }
+      }
+    },
+    "2018-09-15": {
+      "total": "35.40",
+      "product": {
+        "9": {
+          "title": "Product Name 61",
+          "amount": 35.4
+        }
+      }
+    },
+    "2019-07-12": {
+      "total": "40.39",
+      "product": {
+        "81": {
+          "title": "Product Name 17",
+          "amount": 40.39
+        }
+      }
+    },
+    "2019-07-20": {
+      "total": "32.24",
+      "product": {
+        "12": {
+          "title": "Product Name 36",
+          "amount": 32.24
+        }
+      }
+    },
+    "2018-10-14": {
+      "total": "39.00",
+      "product": {
+        "44": {
+          "title": "Product Name 38",
+          "amount": 39
+        }
+      }
+    },
+    "2019-06-06": {
+      "total": "83.15",
+      "product": {
+        "4": {
+          "title": "Product Name 00",
+          "amount": 42.76
+        },
+        "48": {
+          "title": "Product Name 63",
+          "amount": 40.39
+        }
+      }
+    },
+    "2018-09-14": {
+      "total": "84.43",
+      "product": {
+        "44": {
+          "title": "Product Name 38",
+          "amount": 39
+        },
+        "33": {
+          "title": "Product Name 03",
+          "amount": 45.43
+        }
+      }
+    },
+    "2018-12-02": {
+      "total": "35.40",
+      "product": {
+        "9": {
+          "title": "Product Name 61",
+          "amount": 35.4
+        }
+      }
+    },
+    "2018-12-01": {
+      "total": "42.11",
+      "product": {
+        "1": {
+          "title": "Product Name 80",
+          "amount": 42.11
+        }
+      }
+    },
+    "2019-04-04": {
+      "total": "39.03",
+      "product": {
+        "35": {
+          "title": "Product Name 12",
+          "amount": 39.03
+        }
+      }
+    },
+    "2018-09-02": {
+      "total": "36.63",
+      "product": {
+        "18": {
+          "title": "Product Name 82",
+          "amount": 36.63
+        }
+      }
+    },
+    "2018-11-26": {
+      "total": "42.76",
+      "product": {
+        "4": {
+          "title": "Product Name 00",
+          "amount": 42.76
+        }
+      }
+    },
+    "2019-06-18": {
+      "total": "84.02",
+      "product": {
+        "43": {
+          "title": "Product Name 29",
+          "amount": 45.58
+        },
+        "36": {
+          "title": "Product Name 56",
+          "amount": 38.44
+        }
+      }
+    },
+    "2019-02-14": {
+      "total": "42.64",
+      "product": {
+        "86": {
+          "title": "Product Name 30",
+          "amount": 42.64
+        }
+      }
+    }
+  }
+}
